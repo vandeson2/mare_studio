@@ -1,2 +1,95 @@
 @import "tailwindcss";
 
+
+@layer base {
+    :root {
+      --font-cormorant: 'Cormorant Garamond', Georgia, serif;
+      --font-inter: 'Inter', system-ui, sans-serif;
+  
+      /* Paleta extendida como variables CSS */
+      --color-bone:     #F5F2EE;
+      --color-sand:     #E8E2D9;
+      --color-graphite: #1C1C1A;
+      --color-bronze:   #8B7355;
+      --color-muted:    #9E9589;
+      --color-line:     #D4CBBF;
+    }
+  
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+  
+    body {
+      @apply bg-bone text-graphite font-sans;
+      /* Grain texture sutil — atmósfera premium */
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    }
+  
+    ::selection {
+      background-color: rgba(139, 115, 85, 0.18);
+      color: var(--color-graphite);
+    }
+  
+    /* Scrollbar mínima */
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--color-bone); }
+    ::-webkit-scrollbar-thumb { background: var(--color-line); }
+  
+    /* Párrafos con liga OpenType en serif */
+    .font-serif {
+      font-feature-settings: 'liga' 1, 'kern' 1, 'onum' 1;
+    }
+  }
+  
+  @layer utilities {
+    .text-balance {
+      text-wrap: balance;
+    }
+  
+    /* Underline animado izquierda → derecha */
+    .underline-animate {
+      position: relative;
+      display: inline-block;
+    }
+    .underline-animate::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: currentColor;
+      transition: width 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+    .underline-animate:hover::after {
+      width: 100%;
+    }
+  
+    /* Transición extra lenta para imágenes */
+    .transition-image {
+      transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+  
+    /* Texto con outline CSS — efecto editorial */
+    .text-outline-bone {
+      color: transparent;
+      -webkit-text-stroke: 1.5px rgba(245, 242, 238, 0.45);
+    }
+    .text-outline-graphite {
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(28, 28, 26, 0.25);
+    }
+  
+    /* Ocultar scrollbar manteniendo scroll */
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  

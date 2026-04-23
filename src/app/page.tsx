@@ -6,6 +6,7 @@ import Contacto from "@/components/sections/Contacto"
 import Servicios from "@/components/sections/Servicios"
 import Proceso from "@/components/sections/Proceso"
 import PorQueElegirnos from "@/components/sections/PorQueElegirnos"
+import OfertaInicial from "@/components/sections/OfertaInicial"
 
 export const metadata: Metadata = {
   title: 'Maré Studio — Viviendas que se venden antes',
@@ -21,6 +22,7 @@ export default function Home() {
       <Hero />
       <QuienesSomos />
       <Servicios />
+      <OfertaInicial />
       <Proyectos />
       <Proceso />
       <PorQueElegirnos />

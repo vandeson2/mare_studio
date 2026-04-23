@@ -17,7 +17,9 @@ export default function ServiceCard({ servicio }: ServiceCardProps) {
       transition={{ duration: 0.9 }}
       className="flex flex-col gap-0 cursor-default"
     >
-      <div className="relative overflow-hidden bg-sand" style={{ aspectRatio: '16 / 10' }}>
+      <div 
+        className="relative overflow-hidden bg-brand-sand border border-brand-smoke/10" 
+        style={{ aspectRatio: '16 / 10' }}>
         <PremiumPlaceholder
           label={servicio.title}
           note="Servicio disponible"
@@ -25,18 +27,18 @@ export default function ServiceCard({ servicio }: ServiceCardProps) {
         />
       </div>
 
-      {/* Texto — tipografía limpia, sin marco */}
-      <div className="pt-8 border-t border-line mt-8">
-        <p className="font-sans text-[0.58rem] tracking-[0.28em] uppercase text-muted/60 mb-4">
+      {/* Texto */}
+      <div className="pt-8 border-t border-brand-smoke/14 mt-8">
+        <p className="font-sans text-[0.58rem] tracking-[0.28em] uppercase text-brand-smoke/35 mb-4">
           {String(servicio.index).padStart(2, '0')}
         </p>
         <h3
-          className="font-serif font-light text-graphite leading-tight mb-4"
+          className="font-serif font-light text-brand-smoke leading-tight mb-4"
           style={{ fontSize: 'clamp(1.1rem, 2vw, 1.4rem)' }}
         >
           {servicio.title}
         </h3>
-        <p className="font-sans text-xs text-muted leading-relaxed">
+        <p className="font-sans text-xs text-brand-smoke/65 leading-relaxed">
           {servicio.shortDescription}
         </p>
       </div>

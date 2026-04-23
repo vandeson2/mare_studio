@@ -13,17 +13,17 @@ export default function ProcesoStep({ paso, isLast = false }: ProcesoStepProps) 
     <div>
       <div className="grid grid-cols-[auto_1fr] md:grid-cols-[120px_1fr_1fr] gap-x-8 gap-y-2 py-8 md:py-10 items-start">
         {/* Número */}
-        <span className="font-serif text-5xl md:text-6xl font-light text-graphite/15 leading-none select-none mt-1">
+        <span className="font-serif text-5xl md:text-6xl font-light text-brand-smoke/18 leading-none select-none mt-1">
           {stepStr}
         </span>
 
         {/* Título */}
-        <h3 className="font-serif text-xl md:text-2xl font-light text-graphite leading-tight self-center md:col-start-2">
+        <h3 className="font-serif text-xl md:text-2xl font-light text-brand-smoke leading-tight self-center md:col-start-2">
           {paso.title}
         </h3>
 
         {/* Descripción */}
-        <p className="font-sans text-sm text-muted leading-relaxed col-span-2 md:col-span-1 md:col-start-3 md:self-center pl-0 md:pl-4">
+        <p className="font-sans text-sm text-brand-smoke/60 leading-relaxed col-span-2 md:col-span-1 md:col-start-3 md:self-center pl-0 md:pl-4">
           {paso.description}
         </p>
       </div>

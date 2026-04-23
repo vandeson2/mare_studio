@@ -36,7 +36,7 @@ interface SectionHeadingProps {
           font-serif font-light leading-none tracking-tight text-balance
           ${sizeMap[size]}
           ${alignMap[align]}
-          ${light ? 'text-bone' : 'text-graphite'}
+          ${light ? 'text-brand-cream' : 'text-brand-smoke'}
           ${className}
         `}
       >

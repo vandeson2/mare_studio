@@ -14,7 +14,7 @@ export default function Hero() {
   return (
     <section
       ref={ref}
-      className="relative h-screen min-h-[600px] overflow-hidden bg-[#14140F]"
+      className="relative h-screen min-h-[600px] overflow-hidden bg-brand-smoke"
       aria-label="Maré Studio"
     >
 
@@ -35,7 +35,7 @@ export default function Hero() {
         <div
           className="absolute inset-0"
           style={{
-            background: 'linear-gradient(to top, rgba(20,20,15,0.88) 0%, rgba(20,20,15,0.18) 55%, transparent 100%)',
+            background: 'linear-gradient(to top, rgba(47,42,40,0.88) 0%, rgba(47,42,40,0.18) 55%, transparent 100%)',
           }}
         />
       </motion.div>
@@ -54,7 +54,7 @@ export default function Hero() {
                 initial={{ y: '100%' }}
                 animate={{ y: 0 }}
                 transition={{ delay: 0.3, duration: 1.2, ease: [0.19, 1, 0.22, 1] }}
-                className="block font-serif font-light text-[#F5F2EE] tracking-[-0.03em]"
+                className="block font-serif font-light text-brand-cream tracking-[-0.03em]"
                 style={{ fontSize: 'clamp(3.6rem, 8.5vw, 9.5rem)', lineHeight: 0.9 }}
               >
                 Viviendas
@@ -72,7 +72,7 @@ export default function Hero() {
                   fontSize:          'clamp(3.6rem, 8.5vw, 9.5rem)',
                   lineHeight:        0.9,
                   color:             'transparent',
-                  WebkitTextStroke:  '1px rgba(245,242,238,0.32)',
+                  WebkitTextStroke:  '1px rgba(247,243,238,0.32)',
                 }}
               >
                 que se venden.
@@ -89,7 +89,7 @@ export default function Hero() {
           >
             {/* Copy — una sola frase */}
             <p
-              className="font-sans text-[#F5F2EE]/50 leading-relaxed max-w-xs"
+              className="font-sans text-brand-cream/50 leading-relaxed max-w-xs"
               style={{ fontSize: '0.8rem', letterSpacing: '0.01em' }}
             >
               Equipamiento integral para promotoras.<br />
@@ -102,12 +102,12 @@ export default function Hero() {
               className="group flex items-center gap-5 w-fit shrink-0"
             >
               <span
-                className="block h-px bg-[#F5F2EE]/25 transition-all duration-700"
+                className="block h-px bg-brand-cream/25 transition-all duration-700"
                 style={{ width: 36 }}
                 aria-hidden="true"
               />
               <span
-                className="font-sans text-[#F5F2EE]/60 group-hover:text-[#F5F2EE] transition-colors duration-500"
+                className="font-sans text-brand-cream/60 group-hover:text-brand-cream transition-colors duration-500"
                 style={{ fontSize: '0.68rem', letterSpacing: '0.22em' }}
               >
                 SOLICITAR PRESUPUESTO
@@ -128,7 +128,7 @@ export default function Hero() {
         aria-hidden="true"
       >
         <motion.div
-          className="w-full bg-[#F5F2EE]/30"
+          className="w-full bg-brand-cream/30"
           animate={{ height: ['0%', '100%', '0%'], y: ['0%', '0%', '100%'] }}
           transition={{ repeat: Infinity, duration: 2.4, ease: 'easeInOut', delay: 0.5 }}
           style={{ height: '100%' }}

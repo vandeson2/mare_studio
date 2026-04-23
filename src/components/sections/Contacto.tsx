@@ -9,13 +9,13 @@ const empty: Form = { nombre: '', empresa: '', telefono: '', mensaje: '' }
 const inputStyle = {
   background:  'transparent',
   border:      'none',
-  borderBottom: '1px solid rgba(245,242,238,0.12)',
+  borderBottom: '1px solid rgba(247,243,238,0.14)',
   paddingBottom: '1rem',
   paddingTop:  '0.25rem',
   width:       '100%',
   fontFamily:  'var(--font-inter), system-ui, sans-serif',
   fontSize:    '0.9rem',
-  color:       '#F5F2EE',
+  color:       '#F7F3EE',
   outline:     'none',
   transition:  'border-color 0.4s',
 }
@@ -39,8 +39,8 @@ export default function Contacto() {
   return (
     <section
       aria-labelledby="contacto-heading"
+      className="bg-brand-smoke"
       style={{
-        background:    '#1C1C1A',
         paddingTop:    'clamp(7rem, 14vw, 13rem)',
         paddingBottom: 'clamp(7rem, 14vw, 13rem)',
       }}
@@ -62,7 +62,7 @@ export default function Contacto() {
           className="block md:grid"
         >
 
-          {/* Columna izquierda — titular + contacto directo */}
+          {/* Columna izquierda */}
           <div className="mb-14 md:mb-0">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -71,47 +71,40 @@ export default function Contacto() {
               transition={{ duration: 1.0, ease: [0.19, 1, 0.22, 1] }}
             >
               <p
-                className="font-sans uppercase"
-                style={{ fontSize: '0.65rem', letterSpacing: '0.28em', color: 'rgba(245,242,238,0.25)', marginBottom: '1.75rem' }}
+                className="font-sans uppercase text-brand-cream/28"
+                style={{ fontSize: '0.65rem', letterSpacing: '0.28em', marginBottom: '1.75rem' }}
               >
                 Contacto
               </p>
               <h2
                 id="contacto-heading"
-                className="font-serif font-light tracking-[-0.025em]"
-                style={{ fontSize: 'clamp(2.4rem, 4.5vw, 4.5rem)', lineHeight: 0.95, color: '#F5F2EE', marginBottom: 'clamp(3rem, 6vw, 6rem)' }}
+                className="font-serif font-light tracking-[-0.025em] text-brand-cream"
+                style={{ fontSize: 'clamp(2.4rem, 4.5vw, 4.5rem)', lineHeight: 0.95, marginBottom: 'clamp(3rem, 6vw, 6rem)' }}
               >
                 Hablemos de
                 <br />
-                <span style={{ color: 'rgba(245,242,238,0.35)' }}>su próxima promoción.</span>
+                <span className="text-brand-cream/42">su próxima promoción.</span>
               </h2>
 
-              {/* Datos directos — solo texto */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
                 <a
                   href="tel:+34639628867"
-                  className="font-sans transition-colors duration-400"
-                  style={{ fontSize: '0.82rem', color: 'rgba(245,242,238,0.45)', letterSpacing: '0.02em' }}
-                  onMouseEnter={e => (e.currentTarget.style.color = '#F5F2EE')}
-                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(245,242,238,0.45)')}
+                  className="font-sans text-brand-cream/55 hover:text-brand-cream transition-colors duration-500"
+                  style={{ fontSize: '0.82rem', letterSpacing: '0.02em' }}
                 >
                   639 628 867
                 </a>
                 <a
                   href="tel:+34664817452"
-                  className="font-sans transition-colors duration-400"
-                  style={{ fontSize: '0.82rem', color: 'rgba(245,242,238,0.45)', letterSpacing: '0.02em' }}
-                  onMouseEnter={e => (e.currentTarget.style.color = '#F5F2EE')}
-                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(245,242,238,0.45)')}
+                  className="font-sans text-brand-cream/55 hover:text-brand-cream transition-colors duration-500"
+                  style={{ fontSize: '0.82rem', letterSpacing: '0.02em' }}
                 >
                   664 817 452
                 </a>
                 <a
                   href="mailto:marestudio@gmail.es"
-                  className="font-sans transition-colors duration-400"
-                  style={{ fontSize: '0.82rem', color: 'rgba(245,242,238,0.45)', letterSpacing: '0.02em' }}
-                  onMouseEnter={e => (e.currentTarget.style.color = '#F5F2EE')}
-                  onMouseLeave={e => (e.currentTarget.style.color = 'rgba(245,242,238,0.45)')}
+                  className="font-sans text-brand-cream/55 hover:text-brand-cream transition-colors duration-500"
+                  style={{ fontSize: '0.82rem', letterSpacing: '0.02em' }}
                 >
                   marestudio@gmail.es
                 </a>
@@ -119,7 +112,7 @@ export default function Contacto() {
             </motion.div>
           </div>
 
-          {/* Columna derecha — formulario desnudo */}
+          {/* Columna derecha — formulario */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -129,14 +122,14 @@ export default function Contacto() {
             {sent ? (
               <div style={{ paddingTop: '2rem' }}>
                 <p
-                  className="font-serif font-light"
-                  style={{ fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', color: '#F5F2EE', lineHeight: 1.2, marginBottom: '1.2rem' }}
+                  className="font-serif font-light text-brand-cream"
+                  style={{ fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', lineHeight: 1.2, marginBottom: '1.2rem' }}
                 >
                   Gracias por escribirnos.
                 </p>
                 <p
-                  className="font-sans"
-                  style={{ fontSize: '0.8rem', color: 'rgba(245,242,238,0.4)', lineHeight: 1.85 }}
+                  className="font-sans text-brand-cream/45"
+                  style={{ fontSize: '0.8rem', lineHeight: 1.85 }}
                 >
                   Nos pondremos en contacto en las próximas horas.
                 </p>
@@ -152,8 +145,8 @@ export default function Contacto() {
                   <div key={f.id} style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                     <label
                       htmlFor={f.id}
-                      className="font-sans uppercase"
-                      style={{ fontSize: '0.6rem', letterSpacing: '0.22em', color: 'rgba(245,242,238,0.25)' }}
+                      className="font-sans uppercase text-brand-cream/28"
+                      style={{ fontSize: '0.6rem', letterSpacing: '0.22em' }}
                     >
                       {f.label}
                     </label>
@@ -166,8 +159,8 @@ export default function Contacto() {
                       value={form[f.id as keyof Form]}
                       onChange={handle}
                       style={inputStyle}
-                      onFocus={e => (e.target.style.borderBottomColor = 'rgba(245,242,238,0.45)')}
-                      onBlur={e => (e.target.style.borderBottomColor = 'rgba(245,242,238,0.12)')}
+                      onFocus={e => (e.target.style.borderBottomColor = 'rgba(247,243,238,0.40)')}
+                      onBlur={e => (e.target.style.borderBottomColor = 'rgba(247,243,238,0.14)')}
                     />
                   </div>
                 ))}
@@ -175,8 +168,8 @@ export default function Contacto() {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                   <label
                     htmlFor="mensaje"
-                    className="font-sans uppercase"
-                    style={{ fontSize: '0.6rem', letterSpacing: '0.22em', color: 'rgba(245,242,238,0.25)' }}
+                    className="font-sans uppercase text-brand-cream/28"
+                    style={{ fontSize: '0.6rem', letterSpacing: '0.22em'}}
                   >
                     Proyecto
                   </label>
@@ -188,8 +181,8 @@ export default function Contacto() {
                     value={form.mensaje}
                     onChange={handle}
                     style={{ ...inputStyle, resize: 'none', lineHeight: 1.7 }}
-                    onFocus={e => (e.target.style.borderBottomColor = 'rgba(245,242,238,0.45)')}
-                    onBlur={e => (e.target.style.borderBottomColor = 'rgba(245,242,238,0.12)')}
+                    onFocus={e => (e.target.style.borderBottomColor = 'rgba(247,243,238,0.450)')}
+                    onBlur={e => (e.target.style.borderBottomColor = 'rgba(247,243,238,0.14)')}
                   />
                 </div>
 
@@ -204,12 +197,12 @@ export default function Contacto() {
                     padding:       0,
                     fontSize:      '0.68rem',
                     letterSpacing: '0.22em',
-                    color:         sending ? 'rgba(245,242,238,0.25)' : 'rgba(245,242,238,0.55)',
+                    color:         sending ? 'rgba(247,243,238,0.28)' : 'rgba(247,243,238,0.60)',
                     cursor:        sending ? 'not-allowed' : 'pointer',
                     marginTop:     '0.5rem',
                   }}
-                  onMouseEnter={e => !sending && (e.currentTarget.style.color = '#F5F2EE')}
-                  onMouseLeave={e => !sending && (e.currentTarget.style.color = 'rgba(245,242,238,0.55)')}
+                  onMouseEnter={e => !sending && (e.currentTarget.style.color = '#F7F3EE')}
+                  onMouseLeave={e => !sending && (e.currentTarget.style.color = 'rgba(247,243,238,0.60)')}
                 >
                   {sending ? 'ENVIANDO...' : 'ENVIAR SOLICITUD'}
                 </button>

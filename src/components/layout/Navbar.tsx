@@ -26,9 +26,10 @@ export default function Navbar() {
     return () => { document.body.style.overflow = '' }
   }, [open])
 
-  const textColor    = scrolled ? 'rgba(28,28,26,0.85)'   : 'rgba(245,242,238,0.75)'
-  const textHover    = scrolled ? '#1C1C1A'                : '#F5F2EE'
-  const bgScrolled   = 'rgba(245,242,238,0.92)'
+  const headerTextClass = scrolled ? 'text-brand-smoke' : 'text-brand-cream'
+  const navTextClass = scrolled
+    ? 'text-brand-smoke/78 hover:text-brand-smoke'
+    : 'text-brand-cream/75 hover:text-brand-cream'
 
   return (
     <>
@@ -44,23 +45,22 @@ export default function Navbar() {
           alignItems:  'center',
           padding:     '0 clamp(2rem, 6vw, 6rem)',
           justifyContent: 'space-between',
-          background:  scrolled ? bgScrolled : 'transparent',
+          background:  scrolled ? 'rgba(247,243,238,0.92' : 'transparent',
           backdropFilter: scrolled ? 'blur(12px)' : 'none',
-          borderBottom: scrolled ? '1px solid rgba(212,203,191,0.5)' : 'none',
+          borderBottom: scrolled ? '1px solid rgba(47,42,40,0.10)' : 'none',
           transition:  'background 0.5s, border-color 0.5s, backdrop-filter 0.5s',
         }}
       >
         {/* Logo */}
         <Link
           href="/"
+          className={`${headerTextClass} transition-colors duration-400`}
           style={{
             fontFamily:    'var(--font-cormorant), Georgia, serif',
             fontSize:      '1.1rem',
             fontWeight:    300,
             letterSpacing: '0.2em',
-            color:         scrolled ? '#1C1C1A' : '#F5F2EE',
             textTransform: 'uppercase',
-            transition:    'color 0.4s',
           }}
         >
           Maré Studio
@@ -72,26 +72,21 @@ export default function Navbar() {
             <Link
               key={l.href}
               href={l.href}
+              className={`font-sans uppercase transition-colors duration-300 ${navTextClass}`}
               style={{
-                fontFamily:    'var(--font-inter), system-ui, sans-serif',
                 fontSize:      '0.68rem',
                 letterSpacing: '0.18em',
-                textTransform: 'uppercase',
-                color:         textColor,
-                transition:    'color 0.35s',
               }}
-              onMouseEnter={e => (e.currentTarget.style.color = textHover)}
-              onMouseLeave={e => (e.currentTarget.style.color = textColor)}
             >
               {l.label}
             </Link>
           ))}
         </nav>
 
-        {/* Hamburguesa — solo en móvil */}
+        {/* Hamburguesa  */}
         <button
           onClick={() => setOpen(o => !o)}
-          className="md:hidden flex flex-col justify-center gap-[5px] p-1"
+          className={`md:hidden flex flex-col justify-center gap-[5px] p-1 ${headerTextClass}`}
           aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
           style={{ background: 'none', border: 'none', cursor: 'pointer' }}
         >
@@ -99,7 +94,7 @@ export default function Navbar() {
             <motion.span
               key={i}
               className="block bg-current"
-              style={{ width: 24, height: 1, color: scrolled ? '#1C1C1A' : '#F5F2EE' }}
+              style={{ width: 24, height: 1}}
               animate={
                 open
                   ? i === 0 ? { rotate: 45, y: 6 }
@@ -121,11 +116,11 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
+            className="bg-brand-smoke"
             style={{
               position:   'fixed',
               inset:      0,
               zIndex:     40,
-              background: '#1C1C1A',
               display:    'flex',
               flexDirection: 'column',
               justifyContent: 'center',
@@ -143,16 +138,11 @@ export default function Navbar() {
                   <Link
                     href={l.href}
                     onClick={() => setOpen(false)}
+                    className="font-serif font-light text-brand-cream/72 hover:text-brand-cream transition-colors duration-300"
                     style={{
-                      fontFamily:    'var(--font-cormorant), Georgia, serif',
                       fontSize:      'clamp(2.2rem, 6vw, 3.5rem)',
-                      fontWeight:    300,
-                      color:         'rgba(245,242,238,0.7)',
                       letterSpacing: '-0.01em',
-                      transition:    'color 0.3s',
                     }}
-                    onMouseEnter={e => (e.currentTarget.style.color = '#F5F2EE')}
-                    onMouseLeave={e => (e.currentTarget.style.color = 'rgba(245,242,238,0.7)')}
                   >
                     {l.label}
                   </Link>
@@ -170,10 +160,16 @@ export default function Navbar() {
                 left:     'clamp(2rem, 6vw, 6rem)',
               }}
             >
-              <p style={{ fontFamily: 'var(--font-inter)', fontSize: '0.72rem', color: 'rgba(245,242,238,0.25)', marginBottom: '0.6rem', letterSpacing: '0.08em' }}>
+              <p 
+                className="font-sans text-brand-cream/28"
+                style={{fontSize: '0.72rem', marginBottom: '0.6rem', letterSpacing: '0.08em' }}
+              >
                 marestudio@gmail.es
               </p>
-              <p style={{ fontFamily: 'var(--font-inter)', fontSize: '0.72rem', color: 'rgba(245,242,238,0.25)', letterSpacing: '0.08em' }}>
+              <p 
+                className="font-sans text-brand-cream/28"
+                style={{fontSize: '0.72rem',letterSpacing: '0.08em' }}
+              >
                 639 628 867
               </p>
             </motion.div>

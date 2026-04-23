@@ -8,8 +8,8 @@ export default function PorQueElegirnos() {
   return (
     <section
       aria-labelledby="porque-heading"
+      className='bg-brand-sand'
       style={{
-        background:    '#EDE8E2',
         paddingTop:    'clamp(7rem, 14vw, 13rem)',
         paddingBottom: 'clamp(7rem, 14vw, 13rem)',
       }}
@@ -30,19 +30,19 @@ export default function PorQueElegirnos() {
           style={{ marginBottom: 'clamp(4rem, 8vw, 8rem)' }}
         >
           <p
-            className="font-sans uppercase"
-            style={{ fontSize: '0.65rem', letterSpacing: '0.28em', color: '#9E9589', marginBottom: '1.75rem' }}
+            className="font-sans uppercase text-brand-smoke/48"
+            style={{ fontSize: '0.65rem', letterSpacing: '0.28em', marginBottom: '1.75rem' }}
           >
             Por qué elegirnos
           </p>
           <h2
             id="porque-heading"
-            className="font-serif font-light text-[#1C1C1A] tracking-[-0.025em]"
+            className="font-serif font-light text-brand-smoke tracking-[-0.025em]"
             style={{ fontSize: 'clamp(2.4rem, 4.5vw, 4.5rem)', lineHeight: 0.95 }}
           >
             No solo diseño.
             <br />
-            <span style={{ color: '#9E9589' }}>Resultado en ventas.</span>
+            <span className="text-brand-smoke/52">Resultado en ventas.</span>
           </h2>
         </motion.div>
 
@@ -57,13 +57,13 @@ export default function PorQueElegirnos() {
           className="block md:grid"
         >
 
-          {/* Imagen — portrait, sticky en scroll largo */}
+          {/* Imagen  */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.4, ease: [0.19, 1, 0.22, 1] }}
-            className="relative overflow-hidden mb-12 md:mb-0 md:sticky md:top-28"
+            className="relative mb-12 overflow-hidden bg-brand-cream border border-brand-smoke/10 md:sticky md:top-28 md:mb-0 shadow-[0_20px_60px_rgba(0,0,0,0.05)]"
             style={{ aspectRatio: '5 / 4' }}
           >
             <PremiumPlaceholder
@@ -73,8 +73,8 @@ export default function PorQueElegirnos() {
             />
           </motion.div>
 
-          {/* Argumentos — lista con divisores, sin iconos */}
-          <div style={{ borderTop: '1px solid #D4CBBF' }}>
+          {/* Argumentos */}
+          <div className="border-t border-brand-smoke/20">
             {razones.map((r, i) => (
               <motion.div
                 key={r.id}
@@ -93,19 +93,19 @@ export default function PorQueElegirnos() {
                   }}
                 >
                   <h3
-                    className="font-serif font-light text-[#1C1C1A]"
+                    className="font-serif font-light text-brand-smoke"
                     style={{ fontSize: 'clamp(1.1rem, 1.8vw, 1.4rem)', lineHeight: 1.1 }}
                   >
                     {r.title}
                   </h3>
                   <p
-                    className="font-sans text-[#9E9589]"
+                    className="font-sans text-brand-smoke/72"
                     style={{ fontSize: '0.8rem', lineHeight: 1.85, maxWidth: '38ch' }}
                   >
                     {r.description}
                   </p>
                 </div>
-                <div style={{ height: 1, background: '#D4CBBF' }} />
+                <div className="h-px bg-brand-smoke/20" />
               </motion.div>
             ))}
           </div>

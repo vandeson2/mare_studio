@@ -12,9 +12,8 @@ const links = [
 export default function Footer() {
   return (
     <footer
+      className="bg-brand-cream border-t border-brand-smoke/12"
       style={{
-        background:   '#F5F2EE',
-        borderTop:    '1px solid #D4CBBF',
         padding:      'clamp(3rem, 6vw, 5rem) clamp(2rem, 6vw, 6rem)',
       }}
     >
@@ -29,19 +28,19 @@ export default function Footer() {
       >
         {/* Marca */}
         <span
+          className="text-brand-smoke"
           style={{
             fontFamily:    'var(--font-cormorant), Georgia, serif',
             fontSize:      '1.05rem',
             fontWeight:    300,
             letterSpacing: '0.2em',
             textTransform: 'uppercase',
-            color:         '#1C1C1A',
           }}
         >
           Maré Studio
         </span>
 
-        {/* Links — en línea */}
+        {/* Links*/}
         <nav
           style={{ display: 'flex', gap: 'clamp(1.5rem, 3vw, 3rem)', flexWrap: 'wrap' }}
           aria-label="Pie de página"
@@ -50,16 +49,11 @@ export default function Footer() {
             <Link
               key={l.href}
               href={l.href}
+              className="font-sans uppercase text-brand-smoke/55 hover:text-brand-smoke transition-colors duration-300"
               style={{
-                fontFamily:    'var(--font-inter), system-ui, sans-serif',
                 fontSize:      '0.68rem',
                 letterSpacing: '0.15em',
-                textTransform: 'uppercase',
-                color:         '#9E9589',
-                transition:    'color 0.3s',
               }}
-              onMouseEnter={e => (e.currentTarget.style.color = '#1C1C1A')}
-              onMouseLeave={e => (e.currentTarget.style.color = '#9E9589')}
             >
               {l.label}
             </Link>
@@ -68,10 +62,9 @@ export default function Footer() {
 
         {/* Copyright */}
         <p
+          className="font-sans text-brand-smoke/30"
           style={{
-            fontFamily:    'var(--font-inter), system-ui, sans-serif',
             fontSize:      '0.65rem',
-            color:         '#D4CBBF',
             letterSpacing: '0.05em',
           }}
         >

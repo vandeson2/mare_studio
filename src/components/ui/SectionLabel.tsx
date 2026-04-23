@@ -9,7 +9,7 @@ interface SectionLabelProps {
       <span
         className={`
           block text-label-lg font-sans font-medium tracking-[0.25em] uppercase
-          ${light ? 'text-bone/50' : 'text-muted'}
+          ${light ? 'text-brand-cream/45' : 'text-brand-smoke/45'}
           ${className}
         `}
       >

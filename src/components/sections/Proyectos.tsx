@@ -11,8 +11,8 @@ export default function Proyectos() {
   return (
     <section
       aria-labelledby="proyectos-heading"
+      className='bg-brand-smoke'
       style={{
-        background:    '#1C1C1A',
         paddingTop:    'clamp(7rem, 14vw, 13rem)',
         paddingBottom: 'clamp(7rem, 14vw, 13rem)',
       }}
@@ -33,24 +33,24 @@ export default function Proyectos() {
           transition={{ duration: 1.0, ease: [0.19, 1, 0.22, 1] }}
         >
           <p
-            className="font-sans uppercase"
-            style={{ fontSize: '0.65rem', letterSpacing: '0.28em', color: 'rgba(245,242,238,0.25)', marginBottom: '1.75rem' }}
+            className="font-sans uppercase, text-brand-cream/28"
+            style={{ fontSize: '0.65rem', letterSpacing: '0.28em', marginBottom: '1.75rem' }}
           >
             Proyectos
           </p>
           <h2
             id="proyectos-heading"
-            className="font-serif font-light tracking-[-0.02em]"
-            style={{ fontSize: 'clamp(2.6rem, 5vw, 5rem)', lineHeight: 0.95, color: '#F5F2EE' }}
+            className="font-serif font-light tracking-[-0.02em] text-brand-cream"
+            style={{ fontSize: 'clamp(2.6rem, 5vw, 5rem)', lineHeight: 0.95 }}
           >
             El resultado
             <br />
-            <span style={{ color: 'rgba(245,242,238,0.35)' }}>habla por sí solo.</span>
+            <span className="text-brand-cream/40">habla por sí solo.</span>
           </h2>
         </motion.div>
       </div>
 
-      {/* ── Imagen 1 — ancha, a sangre de márgenes ── */}
+      {/* ── Imagen 1 — ancha */}
       {featured[0] && (
         <motion.div
           initial={{ opacity: 0 }}
@@ -72,7 +72,7 @@ export default function Proyectos() {
         </motion.div>
       )}
 
-      {/* Pie imagen 1 — etiqueta tipográfica, no overlay */}
+      {/* Pie imagen 1 */}
       {featured[0] && (
         <motion.div
           initial={{ opacity: 0 }}
@@ -89,22 +89,21 @@ export default function Proyectos() {
           }}
         >
           <p
-            className="font-serif font-light"
-            style={{ fontSize: 'clamp(0.9rem, 1.5vw, 1.1rem)', color: 'rgba(245,242,238,0.5)' }}
+            className="font-serif font-light text-brand-cream/60"
+            style={{ fontSize: 'clamp(0.9rem, 1.5vw, 1.1rem)' }}
           >
             {featured[0].type}
           </p>
           <p
-            className="font-sans uppercase"
-            style={{ fontSize: '0.62rem', letterSpacing: '0.2em', color: 'rgba(245,242,238,0.2)' }}
+            className="font-sans uppercase text-brand-cream/26"
+            style={{ fontSize: '0.62rem', letterSpacing: '0.2em'}}
           >
             {featured[0].services.join(' · ')}
           </p>
         </motion.div>
       )}
 
-      {/* ── Par de imágenes asimétricas ── */}
-      {/* Imagen 2: desplazada a la derecha — imagen 3: anclada a la izquierda */}
+      {/* Imagen 2: derecha — imagen 3: izquierda*/}
       <div
         style={{
           paddingLeft:  'clamp(2rem, 6vw, 6rem)',
@@ -117,7 +116,7 @@ export default function Proyectos() {
         }}
       >
 
-        {/* Imagen 2 — cuadrada, con margin superior para crear desequilibrio */}
+        {/* Imagen 2 — cuadrada */}
         {featured[1] && (
           <motion.div
             initial={{ opacity: 0, y: 32 }}
@@ -138,7 +137,7 @@ export default function Proyectos() {
           </motion.div>
         )}
 
-        {/* Imagen 3 — más alta, portrait */}
+        {/* Imagen 3 — más alta, */}
         {featured[2] && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -161,7 +160,7 @@ export default function Proyectos() {
 
       </div>
 
-      {/* ── Pie de sección — link y nada más ── */}
+      {/* ── Pie de sección */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -177,11 +176,10 @@ export default function Proyectos() {
       >
         <Link
           href="/proyectos"
-          className="font-sans hover:text-[#F5F2EE] transition-colors duration-500"
+          className="font-sans text-brand-cream/40 hover:text-brand-cream transition-colors duration-500"
           style={{
             fontSize:      '0.68rem',
             letterSpacing: '0.2em',
-            color:         'rgba(245,242,238,0.3)',
           }}
         >
           VER TODOS LOS PROYECTOS

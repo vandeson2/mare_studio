@@ -23,17 +23,17 @@ export default function Button({
 
   const variants = {
     primary: `
-      bg-graphite text-bone px-8 py-4
-      hover:bg-bronze
+      bg-brand-smoke text-brand-cream px-8 py-4
+      hover:bg-brand-taupe
       disabled:opacity-40 disabled:cursor-not-allowed
     `,
     ghost: `
-      text-graphite underline-animate pb-0.5
-      hover:text-bronze
+      text-brand-smoke underline-animate pb-0.5
+      hover:text-brand-taupe
     `,
     light: `
-      text-bone underline-animate pb-0.5
-      hover:text-bone/70
+      text-brand-cream underline-animate pb-0.5
+      hover:text-brand-cream/70
     `,
   }
 

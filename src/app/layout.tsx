@@ -70,7 +70,7 @@ export default function RootLayout({
       lang="es"
       className={`${cormorant.variable} ${inter.variable}`}
     >
-      <body className="bg-bone text-graphite antialiased">
+      <body className="bg-brand-cream text-brand-smoke antialiased">
         <Navbar />
         <main>{children}</main>
         <Footer />

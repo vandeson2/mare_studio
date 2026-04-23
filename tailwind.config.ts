@@ -12,13 +12,15 @@ const config: Config = {
         sans:  ['var(--font-inter)', 'system-ui', 'sans-serif'],
       },
       colors: {
-        bone:     '#F5F2EE',
-        sand:     '#E8E2D9',
-        graphite: '#1C1C1A',
-        bronze:   '#8B7355',
-        muted:    '#9E9589',
-        line:     '#D4CBBF',
-        'bone-dark': '#EDE8E2',
+        brand: {
+          taupe: '#B8A89A',
+          cream: '#F7F3EE',
+          sand: '#DCCDBE',
+          clay: '#C08C78',
+          smoke: '#2F2A28',
+        },
+        line: '#DCCDBE',
+
       },
       fontSize: {
         'display-xl': ['clamp(3.5rem, 8vw, 7rem)', { lineHeight: '1.0', letterSpacing: '-0.02em' }],

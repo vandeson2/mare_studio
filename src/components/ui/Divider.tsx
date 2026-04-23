@@ -8,7 +8,7 @@ interface DividerProps {
       <hr
         className={`
           border-0 border-t
-          ${light ? 'border-bone/20' : 'border-line'}
+          ${light ? 'border-brand-cream/16' : 'border-brand-smoke/12'}
           ${className}
         `}
       />

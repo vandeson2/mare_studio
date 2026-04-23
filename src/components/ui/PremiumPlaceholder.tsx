@@ -16,20 +16,20 @@ type PremiumPlaceholderProps = {
     const palette =
       tone === 'dark'
         ? {
-            base: '#2A2926',
-            soft: '#3A3834',
-            accent: '#9E9589',
-            text: 'rgba(245,242,238,0.88)',
-            subtext: 'rgba(245,242,238,0.5)',
-            border: 'rgba(245,242,238,0.18)',
+            base: '#2F2A28',
+            soft: '#3A3431',
+            accent: '#B8A89A',
+            text: 'rgba(247,243,238,0.88)',
+            subtext: 'rgba(247,243,238,0.50)',
+            border: 'rgba(247,243,238,0.16)',
           }
         : {
-            base: '#EDE8E2',
-            soft: '#E8E2D9',
-            accent: '#D4CBBF',
-            text: 'rgba(28,28,26,0.84)',
-            subtext: 'rgba(28,28,26,0.45)',
-            border: 'rgba(158,149,137,0.28)',
+            base: '#F7F3EE',
+            soft: '#DCCDBE',
+            accent: '#B8A89A',
+            text: 'rgba(47,42,40,0.84)',
+            subtext: 'rgba(47,42,40,0.48)',
+            border: 'rgba(47,42,40,0.10)',
           }
   
     return (

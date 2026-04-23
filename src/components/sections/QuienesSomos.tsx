@@ -7,8 +7,8 @@ export default function QuienesSomos() {
   return (
     <section
       aria-labelledby="quienes-somos-heading"
+      className='bg-brand-cream'
       style={{
-        background:    '#EDE8E2',
         paddingTop:    'clamp(7rem, 14vw, 13rem)',
         paddingBottom: 'clamp(7rem, 14vw, 13rem)',
       }}
@@ -40,29 +40,29 @@ export default function QuienesSomos() {
             className="mb-12 md:mb-0"
           >
             <p
-              className="font-sans uppercase"
-              style={{ fontSize: '0.65rem', letterSpacing: '0.28em', color: '#9E9589', marginBottom: '2rem' }}
+              className="font-sans uppercase text-brand-smoke/55"
+              style={{ fontSize: '0.65rem', letterSpacing: '0.28em', marginBottom: '2rem' }}
             >
               Sobre nosotros
             </p>
 
             <h2
               id="quienes-somos-heading"
-              className="font-serif font-light text-[#1C1C1A] tracking-[-0.025em]"
+              className="font-serif font-light text-brand-smoke tracking-[-0.025em]"
               style={{ fontSize: 'clamp(2.4rem, 4.5vw, 4.5rem)', lineHeight: 0.95 }}
             >
               Más de veinte
               <br />
               años equipando
               <br />
-              <span style={{ color: '#9E9589' }}>promociones.</span>
+              <span className="text-brand-smoke/40">promociones.</span>
             </h2>
 
             {/* Tres datos — sin cajas, solo tipografía con separador fino */}
             <div
+              className="border-t border-brand-smoke/14"
               style={{
                 marginTop:   'clamp(3.5rem, 6vw, 6rem)',
-                borderTop:   '1px solid #D4CBBF',
                 paddingTop:  '2rem',
                 display:     'flex',
                 flexDirection: 'column',
@@ -76,13 +76,13 @@ export default function QuienesSomos() {
               ].map(([val, label]) => (
                 <div key={label} style={{ display: 'flex', alignItems: 'baseline', gap: '1.5rem' }}>
                   <span
-                    className="font-serif font-light text-[#1C1C1A]"
+                    className="font-serif font-light text-brand-smoke"
                     style={{ fontSize: 'clamp(1.6rem, 3vw, 2.5rem)', lineHeight: 1, minWidth: '3.5rem' }}
                   >
                     {val}
                   </span>
                   <span
-                    className="font-sans text-[#9E9589]"
+                    className="font-sans text-brand-smoke/55"
                     style={{ fontSize: '0.72rem', letterSpacing: '0.05em' }}
                   >
                     {label}
@@ -100,7 +100,7 @@ export default function QuienesSomos() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.15, duration: 1.2, ease: [0.19, 1, 0.22, 1] }}
-              className="relative overflow-hidden"
+              className="relative overflow-hidden bg-brand-sand border border-brand-smoke/10"
               style={{ aspectRatio: '4 / 3' }}
             >
               <PremiumPlaceholder
@@ -115,7 +115,7 @@ export default function QuienesSomos() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3, duration: 0.9 }}
-              className="font-sans text-[#9E9589]"
+              className="font-sans text-brand-smoke-70"
               style={{ fontSize: '0.85rem', lineHeight: 1.9, maxWidth: '36ch' }}
             >
               Trabajamos directamente con promotoras para garantizar

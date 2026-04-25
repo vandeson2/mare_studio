@@ -1,6 +1,8 @@
 export type Proyecto = {
     id: string
     image: string
+    featuredImage?: string
+    gallery?: string[]
     type: string
     services: string[]
     featured: boolean
@@ -10,7 +12,7 @@ export type Proyecto = {
   export const proyectos: Proyecto[] = [
     {
       id: 'promocion-residencial-01',
-      image: '/images/proyectos/proyecto-01.jpg',
+      image: '/img/proyecto/proyecto-cocina.webp',
       type: 'Cocina · Promoción residencial',
       services: ['Cocinas', 'Suelos', 'Puertas'],
       featured: true,
@@ -18,7 +20,7 @@ export type Proyecto = {
     },
     {
       id: 'promocion-residencial-02',
-      image: '/images/proyectos/proyecto-02.jpg',
+      image: '/img/proyecto/proyecto-armario.webp',
       type: 'Armarios · Vestidor a medida',
       services: ['Armarios', 'Carpintería'],
       featured: true,
@@ -26,16 +28,16 @@ export type Proyecto = {
     },
     {
       id: 'piso-piloto-01',
-      image: '/images/proyectos/proyecto-03.jpg',
+      image: '/img/proyecto/proyecto-muebles.webp',
       type: 'Piso piloto · Equipamiento completo',
-      services: ['Cocinas', 'Suelos', 'Armarios', 'Estores'],
+      services: ['Salón', 'Suelos', 'Armarios', 'Estores'],
       featured: true,
       aspectRatio: 'portrait',
     },
     {
       id: 'promocion-residencial-03',
-      image: '/images/proyectos/proyecto-04.jpg',
-      type: 'Salón · Carpintería a medida',
+      image: '/img/proyecto/proyecto-cocina-negra.webp',
+      type: 'Cocina · Carpintería a medida',
       services: ['Carpintería', 'Suelos'],
       featured: true,
       aspectRatio: 'landscape',

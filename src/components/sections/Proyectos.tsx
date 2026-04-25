@@ -3,27 +3,28 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { proyectos } from '@/data/proyectos'
-import PremiumPlaceholder from '@/components/ui/PremiumPlaceholder'
+import Image from 'next/image'
+import ImageOverlay from '../ui/ImagenOverlay'
 
 export default function Proyectos() {
-  const featured = proyectos.filter((p) => p.featured).slice(0, 3)
+  const featured = proyectos.filter((p) => p.featured).slice(0, 4)
 
   return (
     <section
       aria-labelledby="proyectos-heading"
       className='bg-brand-smoke'
       style={{
-        paddingTop:    'clamp(7rem, 14vw, 13rem)',
-        paddingBottom: 'clamp(7rem, 14vw, 13rem)',
+        paddingTop:    'clamp(7rem, 10vw, 9rem)',
+        paddingBottom: 'clamp(7rem, 10vw, 9rem)',
       }}
     >
 
-      {/* ── Cabecera — mínima ── */}
+      {/* Cabecera */}
       <div
         style={{
           paddingLeft:   'clamp(2rem, 6vw, 6rem)',
           paddingRight:  'clamp(2rem, 6vw, 6rem)',
-          marginBottom:  'clamp(4.5rem, 9vw, 9rem)',
+          marginBottom:  'clamp(4.5rem, 5vw, 5rem)',
         }}
       >
         <motion.div
@@ -50,7 +51,7 @@ export default function Proyectos() {
         </motion.div>
       </div>
 
-      {/* ── Imagen 1 — ancha */}
+      {/* Imagen grande */}
       {featured[0] && (
         <motion.div
           initial={{ opacity: 0 }}
@@ -59,105 +60,53 @@ export default function Proyectos() {
           transition={{ duration: 1.4, ease: [0.19, 1, 0.22, 1] }}
           className="relative overflow-hidden"
           style={{
-            marginLeft:  'clamp(2rem, 6vw, 6rem)',
-            marginRight: 'clamp(2rem, 6vw, 6rem)',
-            aspectRatio: '16 / 9',
-          }}
-        >
-          <PremiumPlaceholder
-            label={featured[0].services[0] ?? 'Proyecto'}
-            note={featured[0].type}
-            tone="dark"
-          />
-        </motion.div>
-      )}
-
-      {/* Pie imagen 1 */}
-      {featured[0] && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 0.8 }}
-          style={{
             paddingLeft:  'clamp(2rem, 6vw, 6rem)',
             paddingRight: 'clamp(2rem, 6vw, 6rem)',
-            marginTop:    '2.2rem',
-            display:      'flex',
-            justifyContent: 'space-between',
-            alignItems:   'baseline',
           }}
         >
-          <p
-            className="font-serif font-light text-brand-cream/60"
-            style={{ fontSize: 'clamp(0.9rem, 1.5vw, 1.1rem)' }}
-          >
-            {featured[0].type}
-          </p>
-          <p
-            className="font-sans uppercase text-brand-cream/26"
-            style={{ fontSize: '0.62rem', letterSpacing: '0.2em'}}
-          >
-            {featured[0].services.join(' · ')}
-          </p>
-        </motion.div>
+          <ImageOverlay
+              src={featured[0].featuredImage ?? featured[0].image}
+              alt={featured[0].type}
+              label={featured[0].type}
+              subtitle={featured[0].services.join(' · ')}
+              priority
+              sizes="100vw"
+              className="aspect-[4/3] md:aspect-[16/10] lg:aspect-[19/9] xl:aspect-[18/9] max-w-[1100px] mx-auto"
+            />
+      </motion.div>
       )}
 
-      {/* Imagen 2: derecha — imagen 3: izquierda*/}
+      {/* 3 imagen inferior  */}
       <div
+        className="max-w-[1100px] mx-auto px-6 sm:px-10 lg:px-0"
         style={{
-          paddingLeft:  'clamp(2rem, 6vw, 6rem)',
-          paddingRight: 'clamp(2rem, 6vw, 6rem)',
-          marginTop:    'clamp(5rem, 8vw, 9rem)',
-          display:      'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap:          'clamp(1.8rem, 3vw, 3rem)',
-          alignItems:   'end',
+          marginTop:    'clamp(3rem, 6vw, 6rem)',
         }}
       >
-
-        {/* Imagen 2 — cuadrada */}
-        {featured[1] && (
-          <motion.div
-            initial={{ opacity: 0, y: 32 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-40px' }}
-            transition={{ duration: 1.2, ease: [0.19, 1, 0.22, 1] }}
-            className="overflow-hidden"
-            style={{ aspectRatio: '16 / 10', marginTop: 'clamp(2rem, 4vw, 4rem)' }}
-          >
-            <div className="relative w-full h-full">
-              <PremiumPlaceholder
-                label={featured[1].services[0] ?? 'Proyecto'}
-                note={featured[1].type}
-                tone="dark"
-                bordered
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-14 gap-x-8 lg:gap-10  items-start">
+         {featured.slice(1, 4).map((project, index) =>(
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+              delay: index * 0.12,
+              duration: 1.0,
+              ease: [0.19, 1, 0.22, 1],
+            }}
+            >
+              <ImageOverlay
+                src={project.featuredImage ?? project.image}
+                alt={project.type}
+                label={project.services[0]}
+                subtitle={project.services.join(' · ')}
+                sizes="(max-width: 640px) calc(100vw - 3rem), (max-width: 1024px) calc(50vw - 3rem), 340px"
+                className="aspect-[4/3] md:aspect-[4/5] xl:aspect-[3/4]"
               />
-            </div>
-          </motion.div>
-        )}
-
-        {/* Imagen 3 — más alta, */}
-        {featured[2] && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-40px' }}
-            transition={{ delay: 0.15, duration: 1.2, ease: [0.19, 1, 0.22, 1] }}
-            className="overflow-hidden"
-            style={{ aspectRatio: '16 / 10' }}
-          >
-            <div className="relative w-full h-full">
-              <PremiumPlaceholder
-                label={featured[2].services[0] ?? 'Proyecto'}
-                note={featured[2].type}
-                tone="dark"
-                bordered
-              />
-            </div>
-          </motion.div>
-        )}
-
+            </motion.div>
+         ))}
+        </div>
       </div>
 
       {/* ── Pie de sección */}
@@ -169,7 +118,7 @@ export default function Proyectos() {
         style={{
           paddingLeft:  'clamp(2rem, 6vw, 6rem)',
           paddingRight: 'clamp(2rem, 6vw, 6rem)',
-          marginTop:    'clamp(4rem, 7vw, 7rem)',
+          marginTop:    'clamp(4rem, 5vw, 5rem)',
           display:      'flex',
           justifyContent: 'flex-end',
         }}

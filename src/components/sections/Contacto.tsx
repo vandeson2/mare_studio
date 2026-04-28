@@ -3,8 +3,8 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 
-type Form = { nombre: string; empresa: string; telefono: string; mensaje: string }
-const empty: Form = { nombre: '', empresa: '', telefono: '', mensaje: '' }
+type Form = { nombre: string; empresa: string; telefono: string; email: string; mensaje: string; website: string}
+const empty: Form = { nombre: '', empresa: '', telefono: '',email: '', mensaje: '', website: ''}
 
 const inputStyle = {
   background:  'transparent',
@@ -31,8 +31,16 @@ export default function Contacto() {
   const submit = async (e: React.FormEvent) => {
     e.preventDefault()
     setSending(true)
-    await new Promise(r => setTimeout(r, 1200))
+  const res = await fetch('api/contacto', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(form),
+  })
+  
+  if (res.ok){
     setSent(true)
+    setForm(empty)
+  }
     setSending(false)
   }
 
@@ -136,11 +144,21 @@ export default function Contacto() {
               </div>
             ) : (
               <form onSubmit={submit} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '2.8rem' }}>
-
+                <input
+                  type="text"
+                  name="website"
+                  value={form.website}
+                  onChange={handle}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  style={{display: 'none'}}
+                />
+                
                 {[
                   { id: 'nombre',   label: 'Nombre',              type: 'text',  placeholder: 'Su nombre',              required: true  },
                   { id: 'empresa',  label: 'Empresa / Promotora', type: 'text',  placeholder: 'Nombre de la promotora',  required: true  },
                   { id: 'telefono', label: 'Teléfono',            type: 'tel',   placeholder: '600 000 000',             required: true  },
+                  { id: 'email',    label: 'Email',               type: 'email', placeholder: 'su@email.com',            required: true},
                 ].map(f => (
                   <div key={f.id} style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                     <label

@@ -41,7 +41,7 @@ export default function ImageOverlay({
       <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(28,24,21,0.34),rgba(28,24,21,0.04))]" />
 
       {/* Marco */}
-      <div className="absolute inset-[16px] border border-white/14 pointer-events-none" />
+      <div className="absolute inset-[16px] border border-white/30 pointer-events-none" />
 
       {/* Label arriba */}
       {label && (

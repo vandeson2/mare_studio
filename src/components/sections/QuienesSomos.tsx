@@ -7,10 +7,10 @@ export default function QuienesSomos() {
   return (
     <section
       aria-labelledby="quienes-somos-heading"
-      className='bg-brand-cream'
+      className='bg-[#F0EBE4]'
       style={{
-        paddingTop:    'clamp(7rem, 14vw, 13rem)',
-        paddingBottom: 'clamp(7rem, 14vw, 13rem)',
+        paddingTop:    'clamp(6rem, 10vw, 10rem)',
+        paddingBottom: 'clamp(6.5rem, 12vw, 12rem)',
       }}
     >
       <div
@@ -20,12 +20,12 @@ export default function QuienesSomos() {
         }}
       >
 
-        {/* Layout asimétrico: etiqueta + titular izquierda, imagen + texto derecha */}
+        {/* etiqueta + titular izquierda, imagen + texto derecha */}
         <div
           style={{
             display:             'grid',
             gridTemplateColumns: '1fr 1fr',
-            gap:                 'clamp(3rem, 6vw, 8rem)',
+            gap:                 'clamp(3rem, 5vw, 7rem)',
             alignItems:          'start',
           }}
           className="block md:grid"
@@ -40,33 +40,34 @@ export default function QuienesSomos() {
             className="mb-12 md:mb-0"
           >
             <p
-              className="font-sans uppercase text-brand-smoke/55"
-              style={{ fontSize: '0.65rem', letterSpacing: '0.28em', marginBottom: '2rem' }}
+              className="font-sans uppercase text-brand-smoke/48"
+              style={{ fontSize: '0.62rem', letterSpacing: '0.32em', marginBottom: '2.2rem' }}
             >
               Sobre nosotros
             </p>
 
             <h2
               id="quienes-somos-heading"
-              className="font-serif font-light text-brand-smoke tracking-[-0.025em]"
-              style={{ fontSize: 'clamp(2.4rem, 4.5vw, 4.5rem)', lineHeight: 0.95 }}
+              className="font-serif font-light text-brand-smoke tracking-[-0.035em]"
+              style={{ fontSize: 'clamp(2.65rem, 4.8vw, 5rem)', lineHeight: 0.93 }}
             >
               Más de veinte
               <br />
               años equipando
               <br />
-              <span className="text-brand-smoke/40">promociones.</span>
+              <span className="text-brand-smoke/28">promociones.</span>
             </h2>
 
-            {/* Tres datos — sin cajas, solo tipografía con separador fino */}
+            {/* Tres datos*/}
             <div
-              className="border-t border-brand-smoke/14"
+              className="border-t border-brand-sand/70"
               style={{
-                marginTop:   'clamp(3.5rem, 6vw, 6rem)',
+                marginTop:   'clamp(3.5rem, 5vw, 5.5rem)',
                 paddingTop:  '2rem',
                 display:     'flex',
                 flexDirection: 'column',
-                gap:         '1.6rem',
+                gap:         '1.45rem',
+                maxWidth:    '26rem',
               }}
             >
               {[
@@ -74,7 +75,10 @@ export default function QuienesSomos() {
                 ['01',  'único interlocutor'],
                 ['6',   'líneas de servicio'],
               ].map(([val, label]) => (
-                <div key={label} style={{ display: 'flex', alignItems: 'baseline', gap: '1.5rem' }}>
+                <div 
+                  key={label} 
+                  className='border-b border-brand-sand/35 pb-4 last:border-b-0 last:pb-0'
+                  style={{ display: 'flex', alignItems: 'baseline', gap: '1.5rem' }}>
                   <span
                     className="font-serif font-light text-brand-smoke"
                     style={{ fontSize: 'clamp(1.6rem, 3vw, 2.5rem)', lineHeight: 1, minWidth: '3.5rem' }}
@@ -92,16 +96,16 @@ export default function QuienesSomos() {
             </div>
           </motion.div>
 
-          {/* Columna derecha — imagen primero, texto debajo */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(2.5rem, 4vw, 4rem)' }}>
+          {/* Columna derecha — */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(2.3rem, 4vw, 3.6rem)' }}>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.15, duration: 1.2, ease: [0.19, 1, 0.22, 1] }}
-              className="relative overflow-hidden bg-brand-sand border border-brand-smoke/10"
-              style={{ aspectRatio: '4 / 3' }}
+              className="relative overflow-hidden bg-brand-sand/55 border border-brand-sand/80 shadow-[0_24px_70px_rgba(47,42,40,0.06)]"
+              style={{ aspectRatio: '4 / 3', padding: 'clamp(1rem, 2vw, 1.8rem', }}
             >
               <PremiumPlaceholder
                 label="Equipo Maré Studio"
@@ -115,8 +119,8 @@ export default function QuienesSomos() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3, duration: 0.9 }}
-              className="font-sans text-brand-smoke-70"
-              style={{ fontSize: '0.85rem', lineHeight: 1.9, maxWidth: '36ch' }}
+              className="font-sans text-brand-smoke/70"
+              style={{ fontSize: '0.85rem', lineHeight: 1.9, maxWidth: '44ch' }}
             >
               Trabajamos directamente con promotoras para garantizar
               un servicio completo, eficiente y adaptado a cada proyecto.

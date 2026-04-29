@@ -54,7 +54,7 @@ export default function Hero() {
       
       {/* Marco */}
       <div
-        className='pointer-events-none absolute left-4 right-4 top-12 bottom-10 border border-[rgba(220,205,190,0.30)] md:left-12 md:right-12 md:top-12 md:bottom-12'
+        className='pointer-events-none absolute left-4 right-4 top-12 bottom-10 border border-[rgba(220,205,190,0.30)] md:left-12 md:right-12 md:top-16 md:bottom-12'
         aria-hidden="true" 
       />
 

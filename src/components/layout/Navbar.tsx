@@ -17,6 +17,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 48)
+    fn()
     window.addEventListener('scroll', fn, { passive: true })
     return () => window.removeEventListener('scroll', fn)
   }, [])
@@ -26,10 +27,10 @@ export default function Navbar() {
     return () => { document.body.style.overflow = '' }
   }, [open])
 
-  const headerTextClass = scrolled ? 'text-brand-smoke' : 'text-brand-cream'
+  const headerTextClass = scrolled ? 'text-brand-smoke/90' : 'text-brand-cream'
   const navTextClass = scrolled
-    ? 'text-brand-smoke/78 hover:text-brand-smoke'
-    : 'text-brand-cream/75 hover:text-brand-cream'
+    ? 'text-brand-smoke/68 hover:text-brand-smoke'
+    : 'text-brand-cream/76 hover:text-brand-cream'
 
   return (
     <>
@@ -40,15 +41,16 @@ export default function Navbar() {
           left:        0,
           right:       0,
           zIndex:      50,
-          height:      '4.5rem',
+          height: scrolled ? '4.5rem' : '5.6rem',
           display:     'flex',
           alignItems:  'center',
           padding:     '0 clamp(2rem, 6vw, 6rem)',
           justifyContent: 'space-between',
-          background:  scrolled ? 'rgba(247,243,238,0.92' : 'transparent',
-          backdropFilter: scrolled ? 'blur(12px)' : 'none',
-          borderBottom: scrolled ? '1px solid rgba(47,42,40,0.10)' : 'none',
-          transition:  'background 0.5s, border-color 0.5s, backdrop-filter 0.5s',
+          background:  scrolled ? 'rgba(247,243,238,0.88' : 'transparent',
+          backdropFilter: scrolled ? 'blur(16px)' : 'none',
+          WebkitBackdropFilter: scrolled ? 'blur(16px)' : 'none',
+          borderBottom: scrolled ? '1px solid rgba(220,205,190,0.42)' : '1px solid transparent',
+          transition:  ' height 0.55s ease, background 0.55s ease, border-color 0.55s, box-shadow 0.55s ease, backdrop-filter 0.55s ease',
         }}
       >
         {/* Logo */}
@@ -67,15 +69,22 @@ export default function Navbar() {
         </Link>
 
         {/* Links desktop */}
-        <nav className="hidden md:flex items-center gap-10" aria-label="Navegación principal">
+        <nav className="hidden md:flex items-center gap-10 lg:gap-14" aria-label="Navegación principal">
           {links.map(l => (
             <Link
               key={l.href}
               href={l.href}
-              className={`font-sans uppercase transition-colors duration-300 ${navTextClass}`}
+              className={`
+                 relative font-sans uppercase transition-all duration-500 
+                 ${navTextClass}
+                 after:absolute after:left-0 after:-bottom-2
+                 after:h-[0.5px] after:w-0 after:bg-current after:opacity-80
+                 after:transition-all after:duration-500
+                 hover:after:w-full
+              `}
               style={{
                 fontSize:      '0.68rem',
-                letterSpacing: '0.18em',
+                letterSpacing: '0.24em',
               }}
             >
               {l.label}

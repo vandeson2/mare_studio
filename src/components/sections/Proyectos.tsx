@@ -3,8 +3,8 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { proyectos } from '@/data/proyectos'
-import Image from 'next/image'
 import ImageOverlay from '../ui/ImagenOverlay'
+import Button from '../ui/Button'
 
 export default function Proyectos() {
   const featured = proyectos.filter((p) => p.featured).slice(0, 4)
@@ -14,8 +14,8 @@ export default function Proyectos() {
       aria-labelledby="proyectos-heading"
       className='bg-brand-smoke'
       style={{
-        paddingTop:    'clamp(7rem, 10vw, 9rem)',
-        paddingBottom: 'clamp(7rem, 10vw, 9rem)',
+        paddingTop:    'clamp(8rem, 12vw, 11rem)',
+        paddingBottom: 'clamp(7rem, 11vw, 910rem)',
       }}
     >
 
@@ -24,29 +24,29 @@ export default function Proyectos() {
         style={{
           paddingLeft:   'clamp(2rem, 6vw, 6rem)',
           paddingRight:  'clamp(2rem, 6vw, 6rem)',
-          marginBottom:  'clamp(4.5rem, 5vw, 5rem)',
+          marginBottom:  'clamp(5rem, 7vw, 7rem)',
         }}
       >
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.0, ease: [0.19, 1, 0.22, 1] }}
+          viewport={{ once: true,  margin: '-80px' }}
+          transition={{ duration: 1.05, ease: [0.19, 1, 0.22, 1] }}
         >
           <p
-            className="font-sans uppercase, text-brand-cream/28"
-            style={{ fontSize: '0.65rem', letterSpacing: '0.28em', marginBottom: '1.75rem' }}
+            className="font-sans uppercase, text-brand-cream/32"
+            style={{ fontSize: '0.62rem', letterSpacing: '0.32em', marginBottom: '1.9rem' }}
           >
             Proyectos
           </p>
           <h2
             id="proyectos-heading"
-            className="font-serif font-light tracking-[-0.02em] text-brand-cream"
-            style={{ fontSize: 'clamp(2.6rem, 5vw, 5rem)', lineHeight: 0.95 }}
+            className="font-serif font-light tracking-[-0.035em] text-brand-cream"
+            style={{ fontSize: 'clamp(3rem, 6vw, 6.4rem)', lineHeight: 0.92 }}
           >
             El resultado
             <br />
-            <span className="text-brand-cream/40">habla por sí solo.</span>
+            <span className="text-brand-cream/30">habla por sí solo.</span>
           </h2>
         </motion.div>
       </div>
@@ -54,10 +54,10 @@ export default function Proyectos() {
       {/* Imagen grande */}
       {featured[0] && (
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 1.4, ease: [0.19, 1, 0.22, 1] }}
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 1.25, ease: [0.19, 1, 0.22, 1] }}
           className="relative overflow-hidden"
           style={{
             paddingLeft:  'clamp(2rem, 6vw, 6rem)',
@@ -71,7 +71,7 @@ export default function Proyectos() {
               subtitle={featured[0].services.join(' · ')}
               priority
               sizes="100vw"
-              className="aspect-[4/3] md:aspect-[16/10] lg:aspect-[19/9] xl:aspect-[18/9] max-w-[1100px] mx-auto"
+              className="aspect-[4/3] md:aspect-[16/10] lg:aspect-[19/9] xl:aspect-[18/9] max-w-[1100px] mx-auto shadow-[0_30px_90px_rgba(0,0,0,0.22)]"
             />
       </motion.div>
       )}
@@ -80,19 +80,19 @@ export default function Proyectos() {
       <div
         className="max-w-[1100px] mx-auto px-6 sm:px-10 lg:px-0"
         style={{
-          marginTop:    'clamp(3rem, 6vw, 6rem)',
+          marginTop:    'clamp(4rem, 7vw, 7rem)',
         }}
       >
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-14 gap-x-8 lg:gap-10  items-start">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-16 gap-x-10 lg:gap-14  items-start">
          {featured.slice(1, 4).map((project, index) =>(
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, y: 28 }}
+              initial={{ opacity: 0, y: 32 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: '-80px'  }}
               transition={{
-              delay: index * 0.12,
-              duration: 1.0,
+              delay: index * 0.1,
+              duration: 1.05,
               ease: [0.19, 1, 0.22, 1],
             }}
             >
@@ -102,7 +102,7 @@ export default function Proyectos() {
                 label={project.services[0]}
                 subtitle={project.services.join(' · ')}
                 sizes="(max-width: 640px) calc(100vw - 3rem), (max-width: 1024px) calc(50vw - 3rem), 340px"
-                className="aspect-[4/3] md:aspect-[4/5] xl:aspect-[3/4]"
+                className="aspect-[4/3] md:aspect-[4/5] xl:aspect-[3/4] shadow-[0_22px_70px_rgba(0,0,0,0.18)]"
               />
             </motion.div>
          ))}
@@ -111,28 +111,21 @@ export default function Proyectos() {
 
       {/* ── Pie de sección */}
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ delay: 0.2, duration: 0.8 }}
+        transition={{ delay: 0.2, duration: 0.9, ease: [0.19, 1, 0.22, 1]  }}
         style={{
           paddingLeft:  'clamp(2rem, 6vw, 6rem)',
           paddingRight: 'clamp(2rem, 6vw, 6rem)',
-          marginTop:    'clamp(4rem, 5vw, 5rem)',
+          marginTop:    'clamp(4.5rem, 6vw, 6rem)',
           display:      'flex',
           justifyContent: 'flex-end',
         }}
       >
-        <Link
-          href="/proyectos"
-          className="font-sans text-brand-cream/40 hover:text-brand-cream transition-colors duration-500"
-          style={{
-            fontSize:      '0.68rem',
-            letterSpacing: '0.2em',
-          }}
-        >
-          VER TODOS LOS PROYECTOS
-        </Link>
+      <Button href="/proyectos" variant='light'>
+        Ver todos los proyectos
+      </Button>
       </motion.div>
 
     </section>

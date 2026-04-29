@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import Button from '../ui/Button'
 
 type Form = { nombre: string; empresa: string; telefono: string; email: string; mensaje: string; website: string}
 const empty: Form = { nombre: '', empresa: '', telefono: '',email: '', mensaje: '', website: ''}
@@ -9,7 +10,7 @@ const empty: Form = { nombre: '', empresa: '', telefono: '',email: '', mensaje: 
 const inputStyle = {
   background:  'transparent',
   border:      'none',
-  borderBottom: '1px solid rgba(247,243,238,0.14)',
+  borderBottom: '1px solid rgba(220,205,190,0.18)',
   paddingBottom: '1rem',
   paddingTop:  '0.25rem',
   width:       '100%',
@@ -17,7 +18,7 @@ const inputStyle = {
   fontSize:    '0.9rem',
   color:       '#F7F3EE',
   outline:     'none',
-  transition:  'border-color 0.4s',
+  transition:  'border-color 0.4s, color 0.4s',
 }
 
 export default function Contacto() {
@@ -31,7 +32,7 @@ export default function Contacto() {
   const submit = async (e: React.FormEvent) => {
     e.preventDefault()
     setSending(true)
-  const res = await fetch('api/contacto', {
+  const res = await fetch('/api/contacto', {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(form),
@@ -49,11 +50,12 @@ export default function Contacto() {
       aria-labelledby="contacto-heading"
       className="bg-brand-smoke"
       style={{
-        paddingTop:    'clamp(7rem, 14vw, 13rem)',
-        paddingBottom: 'clamp(7rem, 14vw, 13rem)',
+        paddingTop:    'clamp(6rem, 10vw, 10rem)',
+        paddingBottom: 'clamp(6rem, 10vw, 10rem)',
       }}
     >
       <div
+        className='max-w-content mx-auto'
         style={{
           paddingLeft:  'clamp(2rem, 6vw, 6rem)',
           paddingRight: 'clamp(2rem, 6vw, 6rem)',
@@ -62,8 +64,7 @@ export default function Contacto() {
 
         <div
           style={{
-            display:             'grid',
-            gridTemplateColumns: '1fr 1.2fr',
+            gridTemplateColumns: '0.9fr 1.15fr',
             gap:                 'clamp(4rem, 8vw, 10rem)',
             alignItems:          'start',
           }}
@@ -73,77 +74,71 @@ export default function Contacto() {
           {/* Columna izquierda */}
           <div className="mb-14 md:mb-0">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 22 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.0, ease: [0.19, 1, 0.22, 1] }}
+              viewport={{ once: true,  margin: '-80px' }}
+              transition={{ duration: 0.95, ease: [0.19, 1, 0.22, 1] }}
             >
               <p
-                className="font-sans uppercase text-brand-cream/28"
-                style={{ fontSize: '0.65rem', letterSpacing: '0.28em', marginBottom: '1.75rem' }}
+                className="font-sans uppercase text-brand-cream/32"
+                style={{ fontSize: '0.62rem', letterSpacing: '0.32em', marginBottom: '1.8rem' }}
               >
                 Contacto
               </p>
               <h2
                 id="contacto-heading"
-                className="font-serif font-light tracking-[-0.025em] text-brand-cream"
-                style={{ fontSize: 'clamp(2.4rem, 4.5vw, 4.5rem)', lineHeight: 0.95, marginBottom: 'clamp(3rem, 6vw, 6rem)' }}
+                className="font-serif font-light tracking-[-0.035em] text-brand-cream"
+                style={{ fontSize: 'clamp(2.9rem, 5vw, 5.5rem)', lineHeight: 0.92, marginBottom: 'clamp(3rem, 6vw, 6rem)' }}
               >
                 Hablemos de
                 <br />
-                <span className="text-brand-cream/42">su próxima promoción.</span>
+                <span className="text-brand-cream/32">su próxima promoción.</span>
               </h2>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
-                <a
-                  href="tel:+34639628867"
-                  className="font-sans text-brand-cream/55 hover:text-brand-cream transition-colors duration-500"
-                  style={{ fontSize: '0.82rem', letterSpacing: '0.02em' }}
-                >
-                  639 628 867
-                </a>
-                <a
-                  href="tel:+34664817452"
-                  className="font-sans text-brand-cream/55 hover:text-brand-cream transition-colors duration-500"
-                  style={{ fontSize: '0.82rem', letterSpacing: '0.02em' }}
-                >
-                  664 817 452
-                </a>
-                <a
-                  href="mailto:marestudio@gmail.es"
-                  className="font-sans text-brand-cream/55 hover:text-brand-cream transition-colors duration-500"
-                  style={{ fontSize: '0.82rem', letterSpacing: '0.02em' }}
-                >
-                  marestudio@gmail.es
-                </a>
+              <div className="flex flex-col gap-4">
+                {[
+                  ['tel:+34639628867', '639 628 867'],
+                  ['tel:+34664817452', '664 817 452'],
+                  ['mailto:marestudio@gmail.es', 'marestudio@gmail.es'],
+                ].map(([href, label]) =>(
+                  <a
+                    key={href}
+                    href={href}
+                    className="font-sans text-brand-cream/58 hover:text-brand-cream transition-colors duration-500"
+                    style={{ fontSize: '0.88rem', letterSpacing: '0.03em' }}
+                  >
+                    {label}
+                  </a>
+                ))}
               </div>
             </motion.div>
           </div>
 
           {/* Columna derecha — formulario */}
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 1.0 }}
+            initial={{ opacity: 0, y: 18}}
+            whileInView={{ opacity: 1, y: 0}}
+            viewport={{ once: true,  margin: '-80px' }}
+            transition={{ delay: 0.12, duration: 0.95,  ease: [0.19, 1, 0.22, 1] }}
+            className="border-t border-brand-sand/18 pt-10"
           >
             {sent ? (
               <div style={{ paddingTop: '2rem' }}>
                 <p
                   className="font-serif font-light text-brand-cream"
-                  style={{ fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', lineHeight: 1.2, marginBottom: '1.2rem' }}
+                  style={{ fontSize: 'clamp(1.6rem, 2.5vw, 2.2rem)', lineHeight: 1.15, marginBottom: '1.2rem' }}
                 >
                   Gracias por escribirnos.
                 </p>
                 <p
-                  className="font-sans text-brand-cream/45"
-                  style={{ fontSize: '0.8rem', lineHeight: 1.85 }}
+                  className="font-sans text-brand-cream/50"
+                  style={{ fontSize: '0.9rem', lineHeight: 1.85 }}
                 >
                   Nos pondremos en contacto en las próximas horas.
                 </p>
               </div>
             ) : (
-              <form onSubmit={submit} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '2.8rem' }}>
+              <form onSubmit={submit} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
                 <input
                   type="text"
                   name="website"
@@ -160,11 +155,11 @@ export default function Contacto() {
                   { id: 'telefono', label: 'Teléfono',            type: 'tel',   placeholder: '600 000 000',             required: true  },
                   { id: 'email',    label: 'Email',               type: 'email', placeholder: 'su@email.com',            required: true},
                 ].map(f => (
-                  <div key={f.id} style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                  <div key={f.id} className='flex flex-col gap-2'>
                     <label
                       htmlFor={f.id}
-                      className="font-sans uppercase text-brand-cream/28"
-                      style={{ fontSize: '0.6rem', letterSpacing: '0.22em' }}
+                      className="font-sans uppercase text-brand-cream/30"
+                      style={{ fontSize: '0.6rem', letterSpacing: '0.26em' }}
                     >
                       {f.label}
                     </label>
@@ -177,17 +172,17 @@ export default function Contacto() {
                       value={form[f.id as keyof Form]}
                       onChange={handle}
                       style={inputStyle}
-                      onFocus={e => (e.target.style.borderBottomColor = 'rgba(247,243,238,0.40)')}
-                      onBlur={e => (e.target.style.borderBottomColor = 'rgba(247,243,238,0.14)')}
+                      onFocus={e => (e.target.style.borderBottomColor = 'rgba(220,205,190,0.48)')}
+                      onBlur={e => (e.target.style.borderBottomColor = 'rgba(220,205,190,0.18)')}
                     />
                   </div>
                 ))}
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                <div className="flex flex-col gap-2">
                   <label
                     htmlFor="mensaje"
-                    className="font-sans uppercase text-brand-cream/28"
-                    style={{ fontSize: '0.6rem', letterSpacing: '0.22em'}}
+                    className="font-sans uppercase text-brand-cream/30"
+                    style={{ fontSize: '0.6rem', letterSpacing: '0.26em'}}
                   >
                     Proyecto
                   </label>
@@ -199,31 +194,20 @@ export default function Contacto() {
                     value={form.mensaje}
                     onChange={handle}
                     style={{ ...inputStyle, resize: 'none', lineHeight: 1.7 }}
-                    onFocus={e => (e.target.style.borderBottomColor = 'rgba(247,243,238,0.450)')}
-                    onBlur={e => (e.target.style.borderBottomColor = 'rgba(247,243,238,0.14)')}
+                    onFocus={e => (e.target.style.borderBottomColor = 'rgba(220,205,190,0.48)')}
+                    onBlur={e => (e.target.style.borderBottomColor = 'rgba(220,205,190,0.18)')}
                   />
                 </div>
 
                 {/* Submit — texto puro, sin forma */}
-                <button
+                <Button
                   type="submit"
+                  variant="outlineLight"
                   disabled={sending}
-                  className="font-sans uppercase text-left transition-colors duration-500"
-                  style={{
-                    background:    'none',
-                    border:        'none',
-                    padding:       0,
-                    fontSize:      '0.68rem',
-                    letterSpacing: '0.22em',
-                    color:         sending ? 'rgba(247,243,238,0.28)' : 'rgba(247,243,238,0.60)',
-                    cursor:        sending ? 'not-allowed' : 'pointer',
-                    marginTop:     '0.5rem',
-                  }}
-                  onMouseEnter={e => !sending && (e.currentTarget.style.color = '#F7F3EE')}
-                  onMouseLeave={e => !sending && (e.currentTarget.style.color = 'rgba(247,243,238,0.60)')}
+                  className="mt-2"
                 >
                   {sending ? 'ENVIANDO...' : 'ENVIAR SOLICITUD'}
-                </button>
+                </Button>
 
               </form>
             )}

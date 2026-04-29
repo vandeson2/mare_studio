@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import Image from 'next/image'
+import Button from '../ui/Button'
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null)
@@ -127,34 +128,9 @@ export default function Hero() {
               Un único interlocutor.
             </p>
             {/* CTA */}
-            <Link
-              href="/contacto"
-              className="
-                group inline-flex items-center gap-3 sm:gap-5 w-fit shrink-0
-                border border-brand-sand/55
-                bg-brand-smoke/24 px-5 py-3
-                shadow-[0_10px_30px_rgba(0,0,0,0.12)]
-                backdrop-blur-[2px]
-                transition-all duration-500
-                hover:-translate-y-[1px]
-                hover:border-brand-clay/85
-                hover:bg-brand-smoke/34
-                hover:shadow-[0_16px_42px_rgba(0,0,0,0.18)]
-                active:translate-y-0
-              "
-            >
-              <span
-                className="block h-px bg-brand-clay/55 transition-all duration-700 group-hover:w-14 group-hover:bg-brand-clay"
-                style={{ width: 35 }}
-                aria-hidden="true"
-              />
-              <span
-                className="font-sans text-brand-cream/80 group-hover:text-brand-cream transition-colors duration-500"
-                style={{ fontSize: 'clamp(0.64rem, 0.82vw, 0.72rem)', letterSpacing: '0.28em', textShadow: '0 8px 26px rgba(47,42,40,0.24)' }}
-              >
-                SOLICITAR PRESUPUESTO
-              </span>
-            </Link>
+            <Button href="/contacto">
+              Solicitar presupuesto
+            </Button>
           </motion.div>
 
         </div>

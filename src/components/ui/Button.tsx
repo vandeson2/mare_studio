@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 interface ButtonProps {
   children: React.ReactNode
-  variant?: 'primary' | 'ghost' | 'light'
+  variant?: 'primary' | 'secondary' | 'light' | 'outlineLight'
   href?: string
   onClick?: () => void
   type?: 'button' | 'submit'
@@ -19,30 +19,70 @@ export default function Button({
   className = '',
   disabled = false,
 }: ButtonProps) {
-  const base = 'inline-flex items-center gap-3 font-sans text-sm font-medium tracking-wide transition-all duration-300 cursor-pointer'
+  const base = 'group inline-flex w-fit items-center font-sans uppercase transition-all duration-500 ease-out disabled:pointer-events-none disabled:opacity-40'
 
   const variants = {
     primary: `
-      bg-brand-smoke text-brand-cream px-8 py-4
-      hover:bg-brand-taupe
-      disabled:opacity-40 disabled:cursor-not-allowed
+      gap-4 border border-brand-sand/50
+      bg-brand-smoke/24 px-6 py-4
+      text-brand-cream/95
+      backdrop-blur-[3px]
+      shadow-[0_12px_34px_rgba(0,0,0,0.14)]
+      hover:-translate-y-[1px]
+      hover:border-brand-clay/80
+      hover:bg-brand-smoke/36
+      hover:text-brand-cream
+      hover:shadow-[0_16px_42px_rgba(0,0,0,0.18)]
     `,
-    ghost: `
-      text-brand-smoke underline-animate pb-0.5
-      hover:text-brand-taupe
+    secondary: `
+      gap-4 text-brand-smoke/65
+      hover:text-brand-smoke
     `,
     light: `
-      text-brand-cream underline-animate pb-0.5
-      hover:text-brand-cream/70
+      gap-4 text-brand-cream/50
+      hover:text-brand-cream
+    `,
+    outlineLight: `
+      border border-brand-sand/35
+      px-6 py-4
+      text-brand-cream/75
+      hover:bg-brand-cream/8
+      hover:text-brand-cream
     `,
   }
+
+  const textStyle = {
+    fontSize: '0.68rem',
+    letterSpacing: '0.24em'
+  }
+
+  const content = (
+    <>
+      <span 
+        className={`
+          block h-px w-8 shrink-0
+          transition-all duration-700
+          group-hover:w-12
+          ${variant === 'primary'
+            ? 'bg-brand-clay/60 group-hover:bg-brand-clay'
+            : variant === 'light'
+              ? 'bg-brand-clay/45 group-hover:bg-brand-clay'
+              : 'bg-brand-smoke/25 group-hover:bg-brand-clay'
+          }
+        `}
+        aria-hidden="true"
+      />
+
+      <span style={textStyle}>{children}</span>
+    </>
+  )
 
   const classes = `${base} ${variants[variant]} ${className}`
 
   if (href) {
     return (
-      <Link href={href} className={classes}>
-        {children}
+      <Link href={href} className={classes} aria-disabled={disabled}>
+        {content}
       </Link>
     )
   }
@@ -54,7 +94,7 @@ export default function Button({
       disabled={disabled}
       className={classes}
     >
-      {children}
+      {content}
     </button>
   )
 }

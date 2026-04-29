@@ -3,64 +3,65 @@
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { ofertaInicial } from "@/data/oferta-inicial"
+import Button from "../ui/Button"
 
 export default function OfertaInicial(){
     return (
         <section
             aria-labelledby="oferta-inicial-heading"
-            className="bg-brand-cream"
+            className="bg-[#F0EBE4]"
             style={{
-                paddingTop: 'clamp(5rem, 10vw, 8rem)',
-                paddingBottom: 'clamp(5rem, 10vw, 8rem)'
+                paddingTop: 'clamp(4.5rem, 8vw, 7rem)',
+                paddingBottom: 'clamp(5rem, 9vw, 8rem)'
             }}
         >
             <div
                 className="max-w-content mx-auto"
                 style={{
-                    paddingTop: 'clamp(2rem, 6vw, 6rem)',
-                    paddingBottom: 'clamp(2rem, 6vw, 6rem)',
+                    paddingLeft: 'clamp(2rem, 6vw, 6rem)',
+                    paddingRight: 'clamp(2rem, 6vw, 6rem)',
                 }}
             >
                 <motion.div
-                    initial={{ opacity: 0, y: 16 }}
+                    initial={{ opacity: 0, y: 18 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8}}
-                    className="mb-10"
+                    viewport={{ once: true, margin:'-80px' }}
+                    transition={{ duration: 0.95, ease: [0.19, 1, 0.22, 1]}}
+                    className="mb-14 md:mb-16"
                 >
                     <p
-                        className="font-sans uppercase text-brand-smoke/45 text-[0.6rem] tracking-[0.25em] mb-4"
+                        className="font-sans uppercase text-brand-smoke/45 text-[0.62rem] tracking-[0.32em] mb-5"
                     >
                         {ofertaInicial.eyebrow}
                     </p>
                     <h2
                         id="oferta-inicial-heading"
-                        className="font-serif font-light text-brand-smoke tracking-[-0.02em]"
+                        className="font-serif font-light text-brand-smoke tracking-[-0.035em]"
                         style={{
-                        fontSize: 'clamp(1.8rem, 3vw, 2.6rem)',
-                        lineHeight: 1,
+                        fontSize: 'clamp(2.4rem, 4.6vw, 5rem)',
+                        lineHeight: 0.95,
                         }}
                         >
                             {ofertaInicial.title}
                             <br />
-                            <span className="text-brand-smoke/45">{ofertaInicial.highlight}</span>
+                            <span className="text-brand-smoke/32">{ofertaInicial.highlight}</span>
                         </h2>
                 </motion.div>
                 
-                <div className="grid md:grid-cols-[1fr_0.9fr] gap-10">
+                <div className="grid  gap-10 md:grid-cols-[1.1fr_0.75fr] md:gap-16 xl:gap-20">
                     <motion.div
-                        initial={{ opacity: 0, y: 16 }}
+                        initial={{ opacity: 0, y: 18 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true}}
-                        transition={{ duration: 0.9}}
-                        className="border border-brand-smoke/10 bg-brand-sand"
-                        style={{ padding: 'clamp(1.5rem, 2.5vw, 2rem)' }}
+                        viewport={{ once: true, margin: '-80px'}}
+                        transition={{ duration: 0.95, ease: [0.19, 1, 0.22, 1]}}
+                        className="border border-brand-smoke/10 bg-brand-sand/70  shadow-[0_24px_70px_rgba(47,42,40,0.06)]"
+                        style={{ padding: 'clamp(2rem, 3vw, 3rem)' }}
                     >
-                        <h3 className="font-serif font-light text-brand-smoke text-[1.1rem] mb-3">
+                        <h3 className="font-serif font-light text-brand-smoke text-[1.35rem] mb-5">
                         {ofertaInicial.introTitle}
                         </h3>
 
-                        <p className="font-sans text-brand-smoke/70 text-[0.8rem] leading-[1.7] mb-6 max-w-[38ch]">
+                        <p className="font-sans text-brand-smoke/68 text-[0.9rem] leading-[1.85] mb-9 max-w-[42ch]">
                         {ofertaInicial.introText}
                         </p>
 
@@ -69,13 +70,13 @@ export default function OfertaInicial(){
                         {ofertaInicial.items.map((item) => (
                             <div
                                 key={item.label}
-                                className="flex items-center justify-between border-b border-brand-smoke/10 py-2.5"
+                                className="flex items-center justify-between  gap-8 border-b border-brand-smoke/10 py-4"
                             >
-                            <span className="text-[0.78rem] text-brand-smoke/70">
+                            <span className="font-sans text-[0.84rem] text-brand-smoke/68">
                                 {item.label}
                             </span>
 
-                            <span className="text-[0.85rem] font-serif text-brand-smoke">
+                            <span className="shrink-0 font-serif text-[0.98rem] font-serif text-brand-smoke/90">
                                 {item.value}
                             </span>
                             </div>
@@ -84,29 +85,29 @@ export default function OfertaInicial(){
 
                         {/* Precio */}
                         {ofertaInicial.priceNote && (
-                            <p className="mt-5 font-serif text-brand-smoke text-[1rem]">
+                            <p className="mt-8 font-serif text-brand-smoke text-[1.15rem]">
                                 {ofertaInicial.priceNote}
                             </p>
                         )}
                     </motion.div>
 
                     <motion.div
-                        initial={{ opacity: 0, y: 16 }}
+                        initial={{ opacity: 0, y: 18 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true}}
-                        transition={{ delay: 0.05, duration: 0.9}}
-                        className="flex flex-col justify-between"
+                        viewport={{ once: true, margin: '-80px'}}
+                        transition={{delay: 0.08, duration: 0.95, ease: [0.19, 1, 0.22, 1]}}
+                        className="flex flex-col justify-between md:pt-2"
                     >
                         <div>
-                        <p className="font-sans uppercase text-brand-smoke/45 text-[0.6rem] tracking-[0.22em] mb-4">
+                        <p className="font-sans uppercase text-brand-smoke/45 text-[0.62rem] tracking-[0.32em] mb-6">
                             {ofertaInicial.audienceLabel}
                         </p>
 
-                        <div className="space-y-3">
+                        <div className="border-t border-brand-smoke/10">
                             {ofertaInicial.audience.map((text) => (
                             <p
                                 key={text}
-                                className="text-[0.82rem] text-brand-smoke/70 leading-[1.7] max-w-[32ch]"
+                                className="border-b border-brand-smoke/10 text-[0.92rem] text-brand-smoke/68 leading-[1.85] max-w-[36ch]"
                             >
                                 {text}
                             </p>
@@ -114,14 +115,10 @@ export default function OfertaInicial(){
                         </div>
                         </div>
 
-                        <div className="mt-8">
-                            <Link
-                                href={ofertaInicial.ctaHref}
-                                className="inline-flex items-center gap-3 text-[0.65rem] uppercase tracking-[0.22em] text-brand-smoke/65 hover:text-brand-smoke transition-colors"
-                            >
-                                <span className="w-8 h-9x bg-brand-smoke/25" aria-hidden="true" />
+                        <div className="mt-10">
+                            <Button href={ofertaInicial.ctaHref}> 
                                 {ofertaInicial.ctaLabel}
-                            </Link>
+                            </Button>
                         </div>
                     </motion.div>
                 </div>

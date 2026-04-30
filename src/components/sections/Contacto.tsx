@@ -199,7 +199,7 @@ export default function Contacto() {
                   />
                 </div>
 
-                {/* Submit — texto puro, sin forma */}
+                {/* Submit  */}
                 <Button
                   type="submit"
                   variant="outlineLight"

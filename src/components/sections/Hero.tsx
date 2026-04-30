@@ -124,8 +124,9 @@ export default function Hero() {
               className="font-sans text-brand-cream/92 leading-relaxed leading-[1.65] font-light max-w-[22rem] sm:max-w-xs"
               style={{ fontSize: 'clamp(0.78rem, 1.8vw, 0.9rem)', letterSpacing: '0.01em',textShadow: '0 8px 26px rgba(47,42,40,0.24)', }}
             >
-              Equipamiento integral para promotoras.<br />
-              Un único interlocutor.
+             {/*  Equipamiento integral para promotoras.<br />
+              Un único interlocutor.*/}
+              Diseñamos, fabricamos e instalamos espacios pensados para aumentar el valor percibido de cada promoción y acelerar su comercialización.
             </p>
             {/* CTA */}
             <Button href="/contacto">

@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { razones } from '@/data/razones'
-import PremiumPlaceholder from '@/components/ui/PremiumPlaceholder'
+import ImageOverlay from '../ui/ImagenOverlay'
 
 export default function PorQueElegirnos() {
   return (
@@ -63,14 +63,18 @@ export default function PorQueElegirnos() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 1.15, ease: [0.19, 1, 0.22, 1] }}
-            className="relative mb-12 overflow-hidden bg-brand-cream/45 border border-brand-cream/55 p-5 md:sticky md:top-28 md:mb-0 shadow-[0_28px_80px_rgba(47,42,40,0.08)]"
-            style={{ aspectRatio: '5 / 4' }}
+            className="relative mb-12 overflow-hidden md:sticky md:top-28 md:mb-0"
+            style={{ aspectRatio: '4 / 3', width: '100%' }}
           >
-            <PremiumPlaceholder
-              label="Piso piloto"
-              note="Referencia visual temporal"
-              bordered
-            />
+            <ImageOverlay
+                src="/img/cocina4.jpg"
+                alt="Cocina moderna blanca con isla central"
+                label='Piso piloto'
+                subtitle='Espacio diseñado para vender'
+                priority
+                sizes="(max-width: 768px) 100vw, 45vw"
+                className="h-full w-full min-h-0"
+              />
           </motion.div>
 
           {/* Argumentos */}
@@ -100,7 +104,7 @@ export default function PorQueElegirnos() {
                     {r.title}
                   </h3>
                   <p
-                    className="font-sans text-brand-smoke/768"
+                    className="font-sans text-brand-smoke/76"
                     style={{ fontSize: '0.88rem', lineHeight: 1.85, maxWidth: '42ch' }}
                   >
                     {r.description}

@@ -77,7 +77,7 @@ export default function Hero() {
                 className="block font-serif font-light text-brand-cream tracking-[-0.03em]"
                 style={{ fontSize: 'clamp(2.15rem, 9vw, 9.5rem)', lineHeight: 0.9, textShadow: '0 12px 42px rgba(47,42,40,0.24)', }}
               >
-                Viviendas
+                
               </motion.h1>
             </div>
 
@@ -107,7 +107,7 @@ export default function Hero() {
                   letterSpacing: '-0.04em',
                 }}
               >
-                que se venden.
+                
               </motion.h1>
             </div>
           </div>
@@ -119,15 +119,27 @@ export default function Hero() {
             transition={{ delay: 1.1, duration: 1.0 }}
             className="flex flex-col gap-6 sm:gap-8 sm:flex-row sm:items-end sm:justify-between"
           >
-        
-            <p
-              className="font-sans text-brand-cream/92 leading-relaxed leading-[1.65] font-light max-w-[22rem] sm:max-w-xs"
-              style={{ fontSize: 'clamp(0.78rem, 1.8vw, 0.9rem)', letterSpacing: '0.01em',textShadow: '0 8px 26px rgba(47,42,40,0.24)', }}
-            >
-             {/*  Equipamiento integral para promotoras.<br />
-              Un único interlocutor.*/}
-              Diseñamos, fabricamos e instalamos espacios pensados para aumentar el valor percibido de cada promoción y acelerar su comercialización.
-            </p>
+            <div className='max-w-[30rem]'>
+              <p className='Font-sans font-light text-brand-cream leading-[1.25]'
+                style={{
+                  fontSize: 'clamp(1.35rem, 2.1vw, 2.05rem)',
+                  letterSpacing: '0.005em',
+                  textShadow: '0 8px 26px rgba(47,42,40,0.16)',
+                }}
+              >
+                Interiorismo para promociones inmobiliarias.
+              </p>
+              <p
+                className="mt-5 max-w-[23rem] font-sans font-light leading-relaxed text-brand-cream/70"
+                style={{
+                  fontSize: 'clamp(0.78rem, 1.45vw, 0.92rem)',
+                  letterSpacing: '0.015em',
+                  textShadow: '0 8px 26px rgba(47,42,40,0.12)',
+                }}
+              >
+                Diseño, fabricación e instalación con un único interlocutor.
+              </p>
+            </div>
             {/* CTA */}
             <Button href="/contacto">
               Solicitar presupuesto

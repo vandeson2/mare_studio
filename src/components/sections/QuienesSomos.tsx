@@ -14,21 +14,13 @@ export default function QuienesSomos() {
     >
       <div
         style={{
-          paddingLeft:  'clamp(2rem, 6vw, 6rem)',
-          paddingRight: 'clamp(2rem, 6vw, 6rem)',
+          paddingLeft:  'clamp(1.25rem, 6vw, 6rem)',
+          paddingRight: 'clamp(1.25rem, 6vw, 6rem)',
         }}
       >
 
         {/* etiqueta + titular izquierda, imagen + texto derecha */}
-        <div
-          style={{
-            display:             'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap:                 'clamp(3rem, 5vw, 7rem)',
-            alignItems:          'start',
-          }}
-          className="block md:grid"
-        >
+        <div  className="grid grid-cols-1 gap-14 md:grid-cols-2 md:gap-[clamp(3rem,5vw,7rem)] md:items-start">
 
           {/* Columna izquierda — titular muy grande con mucho aire abajo */}
           <motion.div
@@ -96,7 +88,7 @@ export default function QuienesSomos() {
           </motion.div>
 
           {/* Columna derecha — */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(1.8rem, 3vw, 2.8rem)' }}>
+          <div className="flex flex-col gap-8 lg:pt-8">
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}

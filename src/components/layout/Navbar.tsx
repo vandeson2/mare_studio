@@ -59,9 +59,9 @@ export default function Navbar() {
           className={`${headerTextClass} transition-colors duration-400`}
           style={{
             fontFamily:    'var(--font-cormorant), Georgia, serif',
-            fontSize:      '1.1rem',
-            fontWeight:    300,
-            letterSpacing: '0.2em',
+            fontSize:      '1.6rem',
+            fontWeight:    600,
+            letterSpacing: '0.32em',
             textTransform: 'uppercase',
           }}
         >

@@ -13,6 +13,7 @@ interface ImageOverlayProps {
   sizes?: string
 
   className?: string
+  imageClassName?: string
 }
 
 export default function ImageOverlay({
@@ -23,6 +24,7 @@ export default function ImageOverlay({
   priority = false,
   sizes = '100vw',
   className = '',
+  imageClassName = '',
 }: ImageOverlayProps) {
   return (
     <div className={`relative overflow-hidden group ${className}`}>
@@ -34,7 +36,7 @@ export default function ImageOverlay({
         fill
         priority={priority}
         sizes={sizes}
-        className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]"
+        className={`object-cover object-center transition-transform duration-700 group-hover:scale-[1.03] ${imageClassName}`}
       />
 
       {/* Overlay */}

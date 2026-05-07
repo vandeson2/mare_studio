@@ -1,8 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import PremiumPlaceholder from '@/components/ui/PremiumPlaceholder'
-
+import ImageOverlay from '../ui/ImagenOverlay'
 export default function QuienesSomos() {
   return (
     <section
@@ -97,20 +96,23 @@ export default function QuienesSomos() {
           </motion.div>
 
           {/* Columna derecha — */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(2.3rem, 4vw, 3.6rem)' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(1.8rem, 3vw, 2.8rem)' }}>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.15, duration: 1.2, ease: [0.19, 1, 0.22, 1] }}
-              className="relative overflow-hidden bg-brand-sand/55 border border-brand-sand/80 shadow-[0_24px_70px_rgba(47,42,40,0.06)]"
-              style={{ aspectRatio: '4 / 3', padding: 'clamp(1rem, 2vw, 1.8rem', }}
+              className="relative overflow-hidden shadow-[0_24px_70px_rgba(47,42,40,0.06)] max-w-[380px] max-h-[460px] max-auto w-full"
+              style={{ aspectRatio: '4 / 5', padding: 'clamp(0.9rem, 1.8vw, 1.4rem', }}
             >
-              <PremiumPlaceholder
-                label="Equipo Maré Studio"
-                note="Retrato corporativo temporal"
-                bordered
+              <ImageOverlay
+                  src='/img/quien_somos.JPG'
+                  alt='Imagen comporativa'
+                  priority
+                  sizes="(max-width: 768px) 100vw, 45vw"
+                  className="h-full w-full min-h-0"
+                 
               />
             </motion.div>
 
@@ -119,11 +121,17 @@ export default function QuienesSomos() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3, duration: 0.9 }}
-              className="font-sans text-brand-smoke/70"
-              style={{ fontSize: '0.85rem', lineHeight: 1.9, maxWidth: '44ch' }}
+              className="font-sans text-brand-smoke/70 max-w-[34rem]"
+              style={{ fontSize: '0.88rem', lineHeight: 1.9, letterSpacing:'0.01em', maxWidth: '52ch' }}
             >
+              Especialistas en equipamiento, carpintería integral e interiorismo para promociones inmobiliarias.
+              <br/>
               Trabajamos directamente con promotoras para garantizar
-              un servicio completo, eficiente y adaptado a cada proyecto.
+              un servicio completo, eficiente y adaptado a cada proyecto. 
+              <br/>
+              Nuestro equipo incluye diseñadores de interiores que potencian 
+              cada espacio para aumentar su valor percibido y favorecer su comercialización.
+              <br/>
               Cocinas, suelos, puertas, armarios y estores — todo bajo
               un mismo paraguas. Sin dispersión. Sin sorpresas.
             </motion.p>

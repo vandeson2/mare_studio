@@ -28,6 +28,7 @@ export default function Hero() {
         animate={{ scale: 1.02, opacity: 1 }}
         transition={{ duration: 2.4, ease: [0.19, 1, 0.22, 1] }}
       >
+        {/* Imagen desktop */}
         <Image
           src="/img/hero/hero-salon.webp"
           alt="Interiorismo residencial con salón, comedor y mobiliario a medida"
@@ -35,6 +36,16 @@ export default function Hero() {
           priority
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw"
           className="object-cover object-[82%_center] sm:object-[72%_center] md:object-[60%_center]"
+        />
+
+        {/* Imagen Móvil */}
+        <Image
+          src="/img/hero/hero-salon-responsive.webp"
+          alt='Interiorismo residencial con salón, comedor y mobiliario a medida'
+          fill
+          priority
+          sizes='100vw'
+          className='block md:hidden object-cover object-center'
         />
 
         {/* Overlay */}

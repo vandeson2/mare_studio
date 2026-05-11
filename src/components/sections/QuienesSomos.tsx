@@ -23,7 +23,7 @@ export default function QuienesSomos() {
         {/* etiqueta + titular izquierda, imagen + texto derecha */}
         <div  className="grid grid-cols-1 gap-14 md:grid-cols-2 md:gap-[clamp(3rem,5vw,7rem)] md:items-start">
 
-          {/* Columna izquierda — titular muy grande con mucho aire abajo */}
+          {/* Columna izquierda — titular muy grande */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -100,7 +100,7 @@ export default function QuienesSomos() {
               style={{ aspectRatio: '4 / 5', padding: 'clamp(0.9rem, 1.8vw, 1.4rem', }}
             >
               <ImageOverlay
-                  src='/img/quien_somos.JPG'
+                  src='/img/quiensomos/quien_somos.webp'
                   alt='Imagen corporativa'
                   priority
                   sizes="(max-width: 768px) 100vw, 45vw"

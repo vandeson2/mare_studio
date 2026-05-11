@@ -14,12 +14,7 @@ export default function PorQueElegirnos() {
         paddingBottom: 'clamp(6rem, 10vw, 10rem)',
       }}
     >
-      <div
-        style={{
-          paddingLeft:  'clamp(2rem, 6vw, 6rem)',
-          paddingRight: 'clamp(2rem, 6vw, 6rem)',
-        }}
-      >
+      <div className='px-5 sm:px-8 lg:px-20 xl:px-24'>
 
         {/* Titular  */}
         <motion.div
@@ -47,15 +42,7 @@ export default function PorQueElegirnos() {
         </motion.div>
 
         {/* Layout: imagen izquierda fija, argumentos derecha */}
-        <div
-          className="block md:grid"
-          style={{
-            display:             'grid',
-            gridTemplateColumns: '0.95fr 1fr',
-            gap:                 'clamp(4rem, 8vw, 10rem)',
-            alignItems:          'start',
-          }}
-        >
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-[0.95fr_1fr] md:gap-[clamp(4rem,8vw,10rem)]">
 
           {/* Imagen  */}
           <motion.div
@@ -67,7 +54,7 @@ export default function PorQueElegirnos() {
             style={{ aspectRatio: '4 / 3', width: '100%' }}
           >
             <ImageOverlay
-                src="/img/cocina4.jpg"
+                src="/img/porqueeleginos/cocina-blanca.webp"
                 alt="Cocina moderna blanca con isla central"
                 label='Piso piloto'
                 subtitle='Espacio diseñado para vender'

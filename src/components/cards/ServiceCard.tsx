@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link'
+//import Link from 'next/link'
 import { motion } from 'framer-motion'
 import type { Servicio } from '@/data/servicios'
 
@@ -15,7 +15,8 @@ export default function ServiceCard({ servicio }: ServiceCardProps) {
       transition={{ duration: 0.45, ease: [0.19, 1, 0.22, 1] }}
       className="group"
     >
-      <Link href={`/servicios/${servicio.slug}`} className="block">
+      {/* href={`/servicios/${servicio.slug}`} añadir cuando quiera más fotos  y cambiar el div por Link */}
+      <div  className="block">
         <div className="relative overflow-hidden border border-brand-smoke/12 bg-brand-cream">
           <div
             className="relative"
@@ -75,7 +76,7 @@ export default function ServiceCard({ servicio }: ServiceCardProps) {
             </div>
           </div>
         </div>
-      </Link>
+      </div>
     </motion.article>
   )
 }

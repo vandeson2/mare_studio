@@ -30,7 +30,7 @@ export default function Hero() {
       >
         <Image
           src="/img/hero/hero-salon.webp"
-          alt="Interiorismo residencial con salón, comerdor y mobiliario a medida"
+          alt="Interiorismo residencial con salón, comedor y mobiliario a medida"
           fill
           priority
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw"

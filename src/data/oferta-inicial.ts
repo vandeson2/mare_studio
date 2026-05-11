@@ -25,7 +25,7 @@ export const ofertaInicial: OfertaInicialData = {
     highlight: 'para promoción, empresas y locales comerciales.',
     introTitle: 'Una solución clara y ágil',
     introText: 
-        'Una propuesta pensada para negocios y espacios comerciales que necesitan una orientación, profesional, una línea estética definida y una solución de interiorismo bien enfocada desde el inicio.',
+        'Una propuesta pensada para negocios y espacios comerciales que necesitan una orientación profesional, una línea estética definida y una solución de interiorismo bien enfocada desde el inicio.',
     items: [
         {
             label: 'Test de estilo',
@@ -40,7 +40,7 @@ export const ofertaInicial: OfertaInicialData = {
             value: 'Incluida',
         },
         {
-            label: 'Compra, entrega y montyaje',
+            label: 'Compra, entrega y montaje',
             value: 'Opcional',
         },
     ],

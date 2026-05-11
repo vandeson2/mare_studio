@@ -101,7 +101,7 @@ export default function QuienesSomos() {
             >
               <ImageOverlay
                   src='/img/quien_somos.JPG'
-                  alt='Imagen comporativa'
+                  alt='Imagen corporativa'
                   priority
                   sizes="(max-width: 768px) 100vw, 45vw"
                   className="h-full w-full min-h-0"

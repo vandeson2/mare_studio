@@ -52,5 +52,5 @@ export const ofertaInicial: OfertaInicialData = {
     ],
     priceNote: 'Desde 120€',
     ctaLabel: 'Solicitar información',
-    ctaHref: '/contacto',
+    ctaHref: '#contacto',
 }

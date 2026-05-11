@@ -142,7 +142,7 @@ export default function Hero() {
               </p>
             </div>
             {/* CTA */}
-            <Button href="/contacto">
+            <Button href="#contacto">
               Solicitar presupuesto
             </Button>
           </motion.div>

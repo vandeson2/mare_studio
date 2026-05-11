@@ -110,7 +110,7 @@ export default function Proyectos() {
         </div>
       </div>
 
-      {/* ── Pie de sección */}
+      {/* ── Pie de sección 
       <motion.div
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -128,7 +128,7 @@ export default function Proyectos() {
         Ver todos los proyectos
       </Button>
       </motion.div>
-
+        */}
     </section>
   )
 }

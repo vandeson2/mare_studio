@@ -61,7 +61,7 @@ export type Servicio = {
       shortDescription: 'Manuales y motorizados. Asesoramiento, medición e instalación.',
       description:
         'Soluciones de protección solar para espacios residenciales. Nos encargamos de todo: asesoramiento, toma de medidas, fabricación e instalación.',
-      image: '#',
+      image: '/img/servicio/servicio-estores.webp',
       slug: 'estores',
       featured: true,
     },

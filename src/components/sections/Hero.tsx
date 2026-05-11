@@ -14,6 +14,7 @@ export default function Hero() {
 
   return (
     <section
+      id='hero'
       ref={ref}
       className="relative h-[100svh] min-h-[560px] md:h-[92vh] overflow-hidden bg-brand-cream"
       aria-label="Maré Studio"

@@ -5,10 +5,10 @@ import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const links = [
-  { label: 'Servicios', href: '/servicios' },
-  { label: 'Proyectos', href: '/proyectos' },
-  { label: 'Nosotros',  href: '/nosotros'  },
-  { label: 'Contacto',  href: '/contacto'  },
+  { label: 'Servicios', href: '#servicios' },
+  { label: 'Proyectos', href: '#proyectos' },
+  { label: 'Nosotros',  href: '#nosotros'  },
+  { label: 'Contacto',  href: '#contacto'  },
 ]
 
 export default function Navbar() {
@@ -54,8 +54,8 @@ export default function Navbar() {
         }}
       >
         {/* Logo */}
-        <Link
-          href="/"
+        <a
+          href="#hero"
           className={`${headerTextClass} transition-colors duration-400`}
           style={{
             fontFamily:    'var(--font-cormorant), Georgia, serif',
@@ -66,12 +66,12 @@ export default function Navbar() {
           }}
         >
           Maré Studio
-        </Link>
+        </a>
 
         {/* Links desktop */}
         <nav className="hidden md:flex items-center gap-10 lg:gap-14" aria-label="Navegación principal">
           {links.map(l => (
-            <Link
+            <a
               key={l.href}
               href={l.href}
               className={`
@@ -88,7 +88,7 @@ export default function Navbar() {
               }}
             >
               {l.label}
-            </Link>
+            </a>
           ))}
         </nav>
 
@@ -144,7 +144,7 @@ export default function Navbar() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.08 + i * 0.07, duration: 0.5, ease: [0.19, 1, 0.22, 1] }}
                 >
-                  <Link
+                  <a
                     href={l.href}
                     onClick={() => setOpen(false)}
                     className="font-serif font-light text-brand-cream/72 hover:text-brand-cream transition-colors duration-300"
@@ -154,7 +154,7 @@ export default function Navbar() {
                     }}
                   >
                     {l.label}
-                  </Link>
+                  </a>
                 </motion.div>
               ))}
             </nav>

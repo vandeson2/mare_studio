@@ -11,6 +11,7 @@ export default function Proyectos() {
 
   return (
     <section
+      id='proyectos'
       aria-labelledby="proyectos-heading"
       className='bg-brand-smoke'
       style={{

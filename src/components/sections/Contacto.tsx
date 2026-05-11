@@ -47,6 +47,7 @@ export default function Contacto() {
 
   return (
     <section
+      id='contacto'
       aria-labelledby="contacto-heading"
       className="bg-brand-smoke"
       style={{

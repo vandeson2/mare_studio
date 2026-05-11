@@ -5,6 +5,7 @@ import ImageOverlay from '../ui/ImagenOverlay'
 export default function QuienesSomos() {
   return (
     <section
+      id='nosotros'
       aria-labelledby="quienes-somos-heading"
       className='bg-[#F0EBE4]'
       style={{

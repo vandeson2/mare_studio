@@ -8,6 +8,7 @@ import Button from "../ui/Button"
 export default function OfertaInicial(){
     return (
         <section
+            id='asesoria'
             aria-labelledby="oferta-inicial-heading"
             className="bg-[#F0EBE4]"
             style={{
@@ -76,7 +77,7 @@ export default function OfertaInicial(){
                                 {item.label}
                             </span>
 
-                            <span className="shrink-0 font-serif text-[0.98rem] font-serif text-brand-smoke/90">
+                            <span className="shrink-0 font-serif text-[0.98rem] text-brand-smoke/90">
                                 {item.value}
                             </span>
                             </div>
@@ -85,7 +86,7 @@ export default function OfertaInicial(){
 
                         {/* Precio */}
                         {ofertaInicial.priceNote && (
-                            <p className="mt-8 font-serif text-brand-smoke text-[1.15rem]">
+                            <p className="mt-8 font-serif font-semibold text-brand-smoke text-[1.6rem]">
                                 {ofertaInicial.priceNote}
                             </p>
                         )}

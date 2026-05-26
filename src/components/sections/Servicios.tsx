@@ -41,9 +41,9 @@ export default function Servicios() {
                 lineHeight: 0.92,
               }}
             >
-              Todo lo que necesita
+              Todo lo que necesitas
               <br />
-              <span className="text-brand-smoke/35">una promoción.</span>
+              <span className="text-brand-smoke/35">para tu hogar.</span>
             </h2>
           </div>
 
@@ -55,8 +55,7 @@ export default function Servicios() {
               letterSpacing: '0.01em',
             }}
           >
-            Soluciones coordinadas para promociones inmobiliarias,
-            pensadas como un conjunto, no como piezas aisladas.
+            Proyectos integrales de interiorismo residencial, concebidos como un conjunto armónico donde cada espacio dialoga y se adapta a tu estilo de vida.
           </p>
         </div>
 

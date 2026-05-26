@@ -21,13 +21,13 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <QuienesSomos />
       <Servicios />
       <OfertaInicial />
       <WhatsappButton />
       <Proyectos />
       <Proceso />
       <PorQueElegirnos />
+      <QuienesSomos />
       <Contacto />
     </>
   )

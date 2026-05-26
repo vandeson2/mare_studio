@@ -13,7 +13,7 @@ export type Proyecto = {
     {
       id: 'promocion-residencial-01',
       image: '/img/proyecto/proyecto-cocina.webp',
-      type: 'Cocina · Promoción residencial',
+      type: 'Cocina · Proyectos residencial',
       services: ['Cocinas', 'Suelos', 'Puertas'],
       featured: true,
       aspectRatio: 'landscape',

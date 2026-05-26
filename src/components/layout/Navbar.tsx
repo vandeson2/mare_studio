@@ -1,12 +1,13 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const links = [
   { label: 'Servicios', href: '#servicios' },
+  { label: 'Asesoría',  href: '#asesoria'},
   { label: 'Proyectos', href: '#proyectos' },
+  { label: 'Procesos',  href: '#procesos'},
   { label: 'Nosotros',  href: '#nosotros'  },
   { label: 'Contacto',  href: '#contacto'  },
 ]
@@ -14,6 +15,7 @@ const links = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen]         = useState(false)
+  const [activeSection, setActiveSection] = useState('')
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 48)
@@ -27,10 +29,49 @@ export default function Navbar() {
     return () => { document.body.style.overflow = '' }
   }, [open])
 
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '-40% 0px -50% 0px', 
+      threshold: 0,
+    }
+
+    const handleIntersection = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry: IntersectionObserverEntry) => {
+        if (entry.isIntersecting) {
+          if (entry.target.id === 'hero'){
+            setActiveSection('')
+          }else{
+            setActiveSection(entry.target.id)
+          }  
+        }
+      })
+    }
+
+    const observer = new IntersectionObserver(handleIntersection, observerOptions)
+
+    links.forEach((link) => {
+      const id = link.href.replace('#', '')
+      const element = document.getElementById(id)
+      if (element) observer.observe(element)
+    })
+  
+    const heroElement = document.getElementById('hero')
+    if (heroElement) observer.observe(heroElement)
+
+    return () => observer.disconnect()
+  }, [])
+
   const headerTextClass = scrolled ? 'text-brand-smoke/90' : 'text-brand-cream'
-  const navTextClass = scrolled
-    ? 'text-brand-smoke/68 hover:text-brand-smoke'
-    : 'text-brand-cream/76 hover:text-brand-cream'
+
+  const getNavLinkClass = (href: string) => {
+    const isActive = activeSection === href.replace('#', '')
+    if (scrolled) {
+      return isActive ? 'text-brand-smoke font-medium' : 'text-brand-smoke/60 hover:text-brand-smoke'
+    } else {
+      return isActive ? 'text-brand-cream font-medium' : 'text-brand-cream/60 hover:text-brand-cream'
+    }
+  }
 
   return (
     <>
@@ -70,26 +111,29 @@ export default function Navbar() {
 
         {/* Links desktop */}
         <nav className="hidden md:flex items-center gap-10 lg:gap-14" aria-label="Navegación principal">
-          {links.map(l => (
-            <a
-              key={l.href}
-              href={l.href}
-              className={`
-                 relative font-sans uppercase transition-all duration-500 
-                 ${navTextClass}
-                 after:absolute after:left-0 after:-bottom-2
-                 after:h-[0.5px] after:w-0 after:bg-current after:opacity-80
-                 after:transition-all after:duration-500
-                 hover:after:w-full
-              `}
-              style={{
-                fontSize:      '0.68rem',
-                letterSpacing: '0.24em',
-              }}
-            >
-              {l.label}
-            </a>
-          ))}
+          {links.map(l => {
+            const isActive = activeSection === l.href.replace('#', '')
+            return (
+              <a
+                key={l.href}
+                href={l.href}
+                className={`relative font-sans uppercase transition-all duration-300 ${getNavLinkClass(l.href)}`}
+                style={{
+                  fontSize:      '0.68rem',
+                  letterSpacing: '0.24em',
+                }}
+              >
+                {l.label}
+                {isActive && (
+                  <motion.div
+                    layoutId="activeUnderline"
+                    className="absolute left-0 -bottom-1.5 h-[1px] w-full bg-current"
+                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                  />
+                )}
+              </a>
+            )
+          })}
         </nav>
 
         {/* Hamburguesa  */}

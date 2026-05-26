@@ -7,6 +7,7 @@ import ImageOverlay from '../ui/ImagenOverlay'
 export default function PorQueElegirnos() {
   return (
     <section
+      id='procesos'
       aria-labelledby="porque-heading"
       className='bg-brand-sand'
       style={{

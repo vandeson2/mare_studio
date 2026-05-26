@@ -9,25 +9,25 @@ export type Razon = {
       id: 'interlocutor',
       title: 'Un único interlocutor',
       description:
-        'Cocinas, suelos, puertas, armarios y estores bajo un mismo paraguas. Menos gestión para la promotora, más control sobre el resultado.',
+        'Cocinas, suelos, puertas, armarios y estores bajo un mismo paraguas. Menos intermediarios en tu obra, máximo control sobre el resultado final.',
     },
     {
       id: 'costes',
-      title: 'Optimización de costes',
+      title: 'Optimización de técnica',
       description:
-        'Producción en volumen sin sacrificar calidad ni acabado. Precios adaptados al presupuesto real de cada promoción.',
+        'Fabricación propia para garantizar la máxima calidad en los acabados. Precios altamente optimizados según la escala de cada proyecto.',
     },
     {
       id: 'plazos',
       title: 'Plazos garantizados',
       description:
-        'Nos coordinamos con obra desde el inicio. Sin retrasos que comprometan la entrega de las viviendas.',
+        'Nos coordinamos de forma estricta con los equipos desde el inicio. Sin imprevistos ni retrasos en la fecha de entrega de las llaves.',
     },
     {
       id: 'ventas',
-      title: 'Espacios que venden',
+      title: 'Espacios con valor',
       description:
-        'Visión comercial y técnica a la vez. Equipamos para mejorar la percepción de valor y acelerar la decisión de compra.',
+        'Visión técnica y estéticaa unidas. Creamos interiores pensados para disfrutarse cada día o para acelerar el éxito de una inversión.',
     },
   ]
   

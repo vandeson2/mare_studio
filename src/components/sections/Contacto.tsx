@@ -91,9 +91,9 @@ export default function Contacto() {
                 className="font-serif font-light tracking-[-0.035em] text-brand-cream"
                 style={{ fontSize: 'clamp(2.9rem, 5vw, 5.5rem)', lineHeight: 0.92, marginBottom: 'clamp(3rem, 6vw, 6rem)' }}
               >
-                Hablemos de
+                Demos vida
                 <br />
-                <span className="text-brand-cream/32">su próxima promoción.</span>
+                <span className="text-brand-cream/32">a tu próximo proyecto.</span>
               </h2>
 
               <div className="flex flex-col gap-4">
@@ -151,8 +151,8 @@ export default function Contacto() {
                 />
                 
                 {[
-                  { id: 'nombre',   label: 'Nombre',              type: 'text',  placeholder: 'Su nombre',              required: true  },
-                  { id: 'empresa',  label: 'Empresa / Promotora', type: 'text',  placeholder: 'Nombre de la promotora',  required: true  },
+                  { id: 'nombre',   label: 'Nombre',              type: 'text',  placeholder: 'Tu nombre',               required: true  },
+                  { id: 'empresa',  label: 'Empresa / Promotora', type: 'text',  placeholder: 'Empresa o particular',    required: true  },
                   { id: 'telefono', label: 'Teléfono',            type: 'tel',   placeholder: '600 000 000',             required: true  },
                   { id: 'email',    label: 'Email',               type: 'email', placeholder: 'su@email.com',            required: true},
                 ].map(f => (
@@ -207,7 +207,7 @@ export default function Contacto() {
                   disabled={sending}
                   className="mt-2"
                 >
-                  {sending ? 'ENVIANDO...' : 'ENVIAR SOLICITUD'}
+                  {sending ? 'ENVIANDO...' : 'ENVIAR MENSAJE'}
                 </Button>
 
               </form>

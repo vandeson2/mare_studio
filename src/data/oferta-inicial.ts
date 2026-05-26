@@ -22,15 +22,11 @@ export type OfertaInicialData = {
 export const ofertaInicial: OfertaInicialData = {
     eyebrow: 'Servicio adicional',
     title: 'Pack asesoría',
-    highlight: 'para promoción, empresas y locales comerciales.',
+    highlight: 'para particulares y diseño de tu hogar.',
     introTitle: 'Una solución clara y ágil',
     introText: 
-        'Una propuesta pensada para negocios y espacios comerciales que necesitan una orientación profesional, una línea estética definida y una solución de interiorismo bien enfocada desde el inicio.',
+        'Una propuesta pensada para personas que necesitan una orientación profesional para su vivienda, definiendo una línea estética clara y soluciones de interiorismo bien enfocadas desde el primer momento.',
     items: [
-        {
-            label: 'Test de estilo',
-            value: 'Incluido',
-        },
         {
             label: 'Videollamada con interiorista profesional',
             value: '40 min',
@@ -46,11 +42,11 @@ export const ofertaInicial: OfertaInicialData = {
     ],
     audienceLabel: 'Pensado para',
     audience: [
-        'Empresas que necesitan una solución estética rápida y bien dirigida.',
-        'Locales comerciales que buscan claridad antes de ejecutar.',
-        'Proyectos que necesitan una propuesta profesional sin empezar desde cero.',
+        'Particulares que buscan una solución estética clara, rápida y bien dirigida.',
+        'Viviendas que necesitan definir su estilo y distribución antes de hacer cambios.',
+        'Hogares que quieren una propuesta de decoración sin meterse en reformas.',
     ],
-    priceNote: 'Desde 120€',
+    priceNote: 'Desde 250€',
     ctaLabel: 'Solicitar información',
     ctaHref: '#contacto',
 }

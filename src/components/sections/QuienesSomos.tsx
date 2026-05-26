@@ -43,11 +43,11 @@ export default function QuienesSomos() {
               className="font-serif font-light text-brand-smoke tracking-[-0.035em]"
               style={{ fontSize: 'clamp(2.65rem, 4.8vw, 5rem)', lineHeight: 0.93 }}
             >
-              Más de veinte
+              Más de veinte años
               <br />
-              años equipando
+              transformando espacios 
               <br />
-              <span className="text-brand-smoke/28">promociones.</span>
+              <span className="text-brand-smoke/28"> y creando hogares.</span>
             </h2>
 
             {/* Tres datos*/}
@@ -117,16 +117,15 @@ export default function QuienesSomos() {
               className="font-sans text-brand-smoke/70 max-w-[34rem]"
               style={{ fontSize: '0.88rem', lineHeight: 1.9, letterSpacing:'0.01em', maxWidth: '52ch' }}
             >
-              Especialistas en equipamiento, carpintería integral e interiorismo para promociones inmobiliarias.
+              Nacimos con el propósito de dar vida a cada proyecto con precisión y diseño.
               <br/>
-              Trabajamos directamente con promotoras para garantizar
-              un servicio completo, eficiente y adaptado a cada proyecto. 
+              Por eso, particulares exigentes y promotoras de referencia confían en nosotros para el equipamiento, 
+              la carpintería integral y el interiorismo de sus espacios. 
               <br/>
-              Nuestro equipo incluye diseñadores de interiores que potencian 
-              cada espacio para aumentar su valor percibido y favorecer su comercialización.
+              Coordinamos desde cocinas y suelos hasta las puertas y armarios bajo un mismo paraguas.
               <br/>
-              Cocinas, suelos, puertas, armarios y estores — todo bajo
-              un mismo paraguas. Sin dispersión. Sin sorpresas.
+              Sin dispersión. Sin sopresas. Unificamos la escala técnica de un gran proyecto con el mimo 
+              y la personalización que tu hogar merece.
             </motion.p>
 
           </div>

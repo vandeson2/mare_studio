@@ -131,16 +131,20 @@ export default function Hero() {
             transition={{ delay: 1.1, duration: 1.0 }}
             className="flex flex-col gap-6 sm:gap-8 sm:flex-row sm:items-end sm:justify-between"
           >
-            <div className='max-w-[30rem]'>
-              <p className='Font-sans font-light text-brand-cream leading-[1.25]'
-                style={{
-                  fontSize: 'clamp(1.35rem, 2.1vw, 2.05rem)',
-                  letterSpacing: '0.005em',
-                  textShadow: '0 8px 26px rgba(47,42,40,0.16)',
-                }}
-              >
-                Interiorismo para promociones inmobiliarias.
-              </p>
+            <div className="max-w-[34rem]">
+            <p
+              className="font-sans font-light text-brand-cream leading-[1.3]"
+              style={{
+                fontSize: 'clamp(1.25rem, 2vw, 1.85rem)',
+                letterSpacing: '0.005em',
+                textShadow: '0 8px 26px rgba(47,42,40,0.16)',
+              }}
+            >
+              <span className="font-semibold block sm:inline">Interiorismo y equipamiento para</span>{' '}
+              <span className="text-brand-cream/90 font-light italic">
+                proyectos residenciales, comerciales y particulares.
+              </span>
+            </p>
               <p
                 className="mt-5 max-w-[23rem] font-sans font-light leading-relaxed text-brand-cream/70"
                 style={{

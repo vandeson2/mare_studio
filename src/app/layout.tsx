@@ -23,20 +23,21 @@ const inter = Inter({
 // SEO GLOBAL
 export const metadata: Metadata = {
   title: {
-    default: 'Maré Studio — Equipamiento integral para promociones inmobiliarias',
+    default: 'Maré Studio — Interiorismo, carpintería integral y proyectos a medida',
     template: '%s | Maré Studio',
   },
   description:
-    'Estudio especializado en equipamiento y carpintería integral para promotoras inmobiliarias. Cocinas, suelos, armarios, puertas y mobiliario a medida. Un único interlocutor. Plazos garantizados.',
+  'Estudio especializado en diseño de interiores, equipamiento y carpintería integral para viviendas particulares y promociones inmobiliarias. Cocinas, suelos, armarios y mobiliario a medida sin sorpresas',
   keywords: [
-    'equipamiento promociones inmobiliarias',
-    'carpintería a medida promotoras',
-    'cocinas para promociones',
-    'suelos laminados vinílicos',
-    'armarios empotrados a medida',
+    'estudio interiorismo residencial',
+    'carpintería a medida alta gama',
+    'diseño cocinas particulares promotoras',
+    'suelos laminados vinílicos instalacion',
+    'armarios empotrados vestidores a medida',
     'estores toldos residencial',
-    'servicio integral promotoras',
-    'Maré Studio',
+    'reformas integrales llave en mano',
+    'equipamiento promociones inmobiliarias',
+    'Maré Studio interiorismo',
   ],
   authors: [{ name: 'Maré Studio' }],
   creator: 'Maré Studio',
@@ -44,9 +45,9 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'es_ES',
     siteName: 'Maré Studio',
-    title: 'Maré Studio — Equipamiento integral para promociones inmobiliarias',
+    title: 'Maré Studio — Interiorismo, carpintería integral y proyectos a medida',
     description:
-      'Carpintería, cocinas, suelos y mobiliario a medida para promotoras. Un único interlocutor. Plazos cumplidos. Resultado en ventas.',
+    'Diseño, fabricación e instalación de cocinas, suelos y mobiliario a medida. La tranquilidad que buscas para tu hogar y la solvencia técnica que exigen las promotoras.',
   },
   twitter: {
     card: 'summary_large_image',

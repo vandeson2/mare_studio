@@ -9,25 +9,25 @@ export type PasoProceso = {
       step: 1,
       title: 'Visita y presupuesto',
       description:
-        'Analizamos la promoción, la tipología de vivienda y el presupuesto disponible. Proponemos soluciones adaptadas sin compromiso.',
+      'Analizamos el espacio, la tipología de vivienda y el presupuesto disponible. Proponemos soluciones adaptadas sin compromiso.'
     },
     {
       step: 2,
       title: 'Fabricación',
       description:
-        'Producimos con los tiempos de la obra. Materiales, acabados y volumen ajustados a cada proyecto y promotora.',
+        'Producimos optimizando los tiempos. Materiales, acabados y volumen ajustados a las necesidades de cada hogar o proyecto.',
     },
     {
       step: 3,
       title: 'Coordinación con obra',
       description:
-        'Nos integramos con la constructora para garantizar plazos y evitar interferencias. Un único punto de contacto para todo.',
+        'Nos integramos con el equipo de obra para garantizar plazos y evitar interferencias. Un único punto de contacto para todo.',
     },
     {
       step: 4,
       title: 'Instalación',
       description:
-        'Equipo propio. Acabados supervisados. Las viviendas quedan listas para la entrega al comprador.',
+        'Equipo propio. Acabados supervisados. Las viviendas quedan listas para entrar a vivir o para su comercialización.',
     },
   ]
   

@@ -1,6 +1,4 @@
 'use client'
-
-import Link from "next/link"
 import { motion } from "framer-motion"
 import { ofertaInicial } from "@/data/oferta-inicial"
 import Button from "../ui/Button"

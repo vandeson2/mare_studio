@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion'
 import type { Proyecto } from '@/data/proyectos'
-import PremiumPlaceholder from '@/components/ui/PremiumPlaceholder'
 
 interface ProjectCardProps {
   proyecto: Proyecto
@@ -19,12 +18,7 @@ export default function ProjectCard({ proyecto, className = '' }: ProjectCardPro
       className={`relative overflow-hidden ${className}`}
       style={{ aspectRatio: '16 / 10' }}
     >
-      <PremiumPlaceholder
-        label={proyecto.services[0] ?? 'Proyecto'}
-        note={proyecto.type}
-        tone="dark"
-        bordered
-      />
+      {/* Añadir la imagen oel componente imagenOverlay con las fotos */}
     </motion.article>
   )
 }

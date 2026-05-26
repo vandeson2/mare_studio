@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import ImageOverlay from '../ui/ImagenOverlay'
+
 export default function QuienesSomos() {
   return (
     <section

@@ -1,10 +1,9 @@
 'use client'
 
-import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { proyectos } from '@/data/proyectos'
 import ImageOverlay from '../ui/ImagenOverlay'
-import Button from '../ui/Button'
+
 
 export default function Proyectos() {
   const featured = proyectos.filter((p) => p.featured).slice(0, 4)
@@ -109,26 +108,6 @@ export default function Proyectos() {
          ))}
         </div>
       </div>
-
-      {/* ── Pie de sección 
-      <motion.div
-        initial={{ opacity: 0, y: 12 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.2, duration: 0.9, ease: [0.19, 1, 0.22, 1]  }}
-        style={{
-          paddingLeft:  'clamp(2rem, 6vw, 6rem)',
-          paddingRight: 'clamp(2rem, 6vw, 6rem)',
-          marginTop:    'clamp(4.5rem, 6vw, 6rem)',
-          display:      'flex',
-          justifyContent: 'flex-end',
-        }}
-      >
-      <Button href="/proyectos" variant='light'>
-        Ver todos los proyectos
-      </Button>
-      </motion.div>
-        */}
     </section>
   )
 }

@@ -1,6 +1,5 @@
 'use client'
 
-import Link from 'next/link'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import Image from 'next/image'
@@ -9,7 +8,6 @@ import Button from '../ui/Button'
 export default function Hero() {
   const ref = useRef<HTMLElement>(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
-  //const y       = useTransform(scrollYProgress, [0, 1], ['0%', '20%'])
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
 
   return (
@@ -103,19 +101,8 @@ export default function Hero() {
                 style={{
                   fontSize:          'clamp(2.15rem, 9vw, 9.5rem)',
                   lineHeight:        0.9,
-                  /* Opción 1 relleno con degrade */
-                  //background: 'linear-gradient(180deg,#F7F3EE,#DCCDBE)',
-                  //WebkitBackgroundClip: 'text',
-                  //color:             'transparent',
-                  //WebkitTextStroke:  '0.8px rgba(220,205,190,0.55)',
-                  //textShadow: `
-                   // 0 4px 18px rgba(47,42,40,0.12),
-                  //  //0 16px 54px rgba(47, 42, 40,0.34)
-                  //
-                  //`
-                  /* Opción 2 minimalista */
-                  color: 'rgba(247,243,238,0.08)', // cream muy sutil
-                  WebkitTextStroke: '1px rgba(220,205,190,0.92)', // sand elegante
+                  color: 'rgba(247,243,238,0.08)', 
+                  WebkitTextStroke: '1px rgba(220,205,190,0.92)', 
                   letterSpacing: '-0.04em',
                 }}
               >

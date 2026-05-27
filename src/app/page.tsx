@@ -10,9 +10,9 @@ import OfertaInicial from "@/components/sections/OfertaInicial"
 import WhatsappButton from "@/components/ui/WhatsappButton"
 
 export const metadata: Metadata = {
-  title: 'Maré Studio — Viviendas que se venden antes',
+  title: 'Maré Studio — Interiorismo, carpintería integral y proyectos a medida',
   description:
-    'Equipamiento y carpintería integral para promociones inmobiliarias. Cocinas, suelos, armarios y mobiliario a medida. Un único interlocutor. Plazos garantizados. Resultado en ventas.',
+    'Estudio especializado en diseño de interiores, equipamiento y carpintería integral para viviendas particulares y promociones inmobiliarias. Cocinas, suelos, armarios y mobiliario a medida sin sorpresas',
   alternates: {
     canonical: 'https://marestudio.es',
   },

@@ -217,7 +217,7 @@ export default function Navbar() {
                 className="font-sans text-brand-cream/28"
                 style={{fontSize: '0.72rem', marginBottom: '0.6rem', letterSpacing: '0.08em' }}
               >
-                marestudio@gmail.es
+                info@maréstudio.es
               </p>
               <p 
                 className="font-sans text-brand-cream/28"

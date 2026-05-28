@@ -100,7 +100,7 @@ export default function Contacto() {
                 {[
                   ['tel:+34639628867', '639 628 867'],
                   ['tel:+34664817452', '664 817 452'],
-                  ['mailto:marestudio@gmail.es', 'marestudio@gmail.es'],
+                  ['mailto:info@maréstudio.es', 'info@maréstudio.es'],
                 ].map(([href, label]) =>(
                   <a
                     key={href}

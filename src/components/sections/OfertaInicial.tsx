@@ -115,7 +115,9 @@ export default function OfertaInicial(){
                         </div>
 
                         <div className="mt-10">
-                            <Button href={ofertaInicial.ctaHref}> 
+                            <Button 
+                                variant="dark"
+                                href={ofertaInicial.ctaHref}> 
                                 {ofertaInicial.ctaLabel}
                             </Button>
                         </div>

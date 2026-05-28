@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 interface ButtonProps {
   children: React.ReactNode
-  variant?: 'primary' | 'secondary' | 'light' | 'outlineLight'
+  variant?: 'primary' | 'secondary' | 'light' | 'outlineLight' | 'dark'
   href?: string
   onClick?: () => void
   type?: 'button' | 'submit'
@@ -49,6 +49,15 @@ export default function Button({
       hover:bg-brand-cream/8
       hover:text-brand-cream
     `,
+    dark: `
+      gap-4 border border-brand-smoke/20
+      bg-brand-smoke text-brand-cream
+      px-8 py-4
+      shadow-[0_4px_14px_rgba(0,0,0,0.06)]
+      hover:-translate-y-[1px]
+      hover:bg-brand-smoke/90
+      hover:shadow-[0_6px_20px_rgba(0,0,0,0.1)]
+    `,
   }
 
   const textStyle = {
@@ -67,7 +76,10 @@ export default function Button({
             ? 'bg-brand-clay/60 group-hover:bg-brand-clay'
             : variant === 'light'
               ? 'bg-brand-clay/45 group-hover:bg-brand-clay'
-              : 'bg-brand-smoke/25 group-hover:bg-brand-clay'
+              : variant === 'dark'
+                ? 'bg-brand-cream/40 group-hover:bg-brand-cream' 
+                : 'bg-brand-smoke/25 group-hover:bg-brand-clay'
+        }
           }
         `}
         aria-hidden="true"

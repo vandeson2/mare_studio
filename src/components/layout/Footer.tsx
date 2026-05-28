@@ -44,7 +44,8 @@ export default function Footer() {
 
         {/* Links*/}
         <nav
-          style={{ display: 'flex', gap: 'clamp(1.5rem, 3vw, 3rem)', flexWrap: 'wrap' }}
+          className="grid grid-cols-3 gap-x-6 gap-y-4 md:flex md:flex-wrap"
+          style={{ gap: 'clamp(1.5rem, 3vw, 3rem)'}}
           aria-label="Pie de página"
         >
           {links.map(l => (

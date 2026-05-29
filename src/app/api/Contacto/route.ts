@@ -13,7 +13,7 @@ export async function POST(req: Request){
     try{
         await resend.emails.send({
             from: 'Maré Studio <onboarding@resend.dev>',
-            to: 'marestudio@gmail.es',
+            to: 'info@marestudio.es',
             replyTo: email,
             subject: 'Nuevo contacto desde la web',
             html:`

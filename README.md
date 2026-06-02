@@ -11,7 +11,9 @@ Proyecto en Next.js 16 preparado para despliegue en hosting con Node.js.
 
 1. Copia `.env.example` como `.env.local` en local o configura las mismas variables en tu panel de hosting.
 2. Define:
-   - `RESEND_API_KEY`
+   - `RESEND_API_KEY` — clave de [Resend](https://resend.com)
+   - `RESEND_FROM_EMAIL` — `Maré Studio <contacto@xn--marstudio-d4a.es>` (dominio verificado)
+   - `RESEND_TO_EMAIL` — `info@xn--marstudio-d4a.es` (mismo buzón que info@maréstudio.es)
    - `NEXT_PUBLIC_WHATSAPP_PHONE`
 
 ## Desarrollo local
@@ -54,7 +56,11 @@ Este proyecto usa `output: "standalone"` para facilitar despliegue en VPS/hostin
    - Elige **Subir mediante archivo** y sube el `.zip` del proyecto.
    - Selecciona como **Application root** la carpeta donde está `package.json`.
 3. Variables de entorno en Hostinger:
-   - Añade `RESEND_API_KEY` y `NEXT_PUBLIC_WHATSAPP_PHONE` en la sección de environment variables.
+   - `RESEND_API_KEY`
+   - `RESEND_FROM_EMAIL=Maré Studio <contacto@xn--marstudio-d4a.es>`
+   - `RESEND_TO_EMAIL=info@xn--marstudio-d4a.es`
+   - `NEXT_PUBLIC_WHATSAPP_PHONE`
+   - Tras guardar, haz **Redeploy** para que la app cargue las variables.
 4. En la sección de comandos / startup de Hostinger:
    - Comando de instalación: `npm install`
    - Comando de build: `npm run build`
@@ -62,5 +68,6 @@ Este proyecto usa `output: "standalone"` para facilitar despliegue en VPS/hostin
 
 ## Notas
 
-- El endpoint de contacto está en `src/app/api/Contacto/route.ts` y depende de Resend.
+- El endpoint de contacto está en `src/app/api/contacto/route.ts` y depende de Resend.
+- El dominio en Resend debe ser `xn--marstudio-d4a.es` (equivalente a maréstudio.es).
 - No subas `.env.local` al repositorio.

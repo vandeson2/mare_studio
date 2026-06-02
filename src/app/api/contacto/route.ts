@@ -2,7 +2,7 @@ import { domainToASCII } from 'node:url'
 import { Resend } from 'resend'
 
 const DEFAULT_FROM = 'Maré Studio <onboarding@resend.dev>'
-/** Mismo buzón que info@maréstudio.es — Resend solo acepta ASCII en `to` */
+
 const DEFAULT_TO = 'info@xn--marstudio-d4a.es'
 
 function emailForSending(address: string): string {

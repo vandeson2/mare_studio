@@ -1,4 +1,27 @@
+import { domainToASCII } from 'node:url'
 import { Resend } from 'resend'
+
+const DEFAULT_FROM = 'Maré Studio <onboarding@resend.dev>'
+/** Mismo buzón que info@maréstudio.es — Resend solo acepta ASCII en `to` */
+const DEFAULT_TO = 'info@xn--marstudio-d4a.es'
+
+function emailForSending(address: string): string {
+  const trimmed = address.trim()
+  const at = trimmed.lastIndexOf('@')
+  if (at <= 0) return DEFAULT_TO
+
+  const local = trimmed.slice(0, at)
+  const domain = trimmed.slice(at + 1).normalize('NFC')
+
+  try {
+    const ascii = `${local}@${domainToASCII(domain)}`
+    if (!/[^\x00-\x7F]/.test(ascii)) return ascii
+  } catch {
+    /* fallback abajo */
+  }
+
+  return DEFAULT_TO
+}
 
 export async function POST(req: Request) {
   const apiKey = process.env.RESEND_API_KEY
@@ -16,26 +39,38 @@ export async function POST(req: Request) {
     return Response.json({ error: 'Faltan campos obligatorios' }, { status: 400 })
   }
 
+  const from = process.env.RESEND_FROM_EMAIL ?? DEFAULT_FROM
+  const to = emailForSending(process.env.RESEND_TO_EMAIL ?? DEFAULT_TO)
+
   const resend = new Resend(apiKey)
 
-  try {
-    await resend.emails.send({
-      from: 'Maré Studio <onboarding@resend.dev>',
-      to: 'info@maréstudio.es',
-      replyTo: email,
-      subject: 'Nuevo contacto desde la web',
-      html: `
-        <h2>Nuevo mensaje</h2>
-        <p><strong>Nombre:</strong> ${nombre}</p>
-        <p><strong>Empresa:</strong> ${empresa || '-'}</p>
-        <p><strong>Teléfono:</strong> ${telefono}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Mensaje:</strong></p>
-        <p>${mensaje}</p>
-      `,
-    })
-    return Response.json({ ok: true })
-  } catch {
+  const { data, error: sendError } = await resend.emails.send({
+    from,
+    to,
+    replyTo: email,
+    subject: 'Nuevo contacto desde la web',
+    html: `
+      <h2>Nuevo mensaje</h2>
+      <p><strong>Nombre:</strong> ${nombre}</p>
+      <p><strong>Empresa:</strong> ${empresa || '-'}</p>
+      <p><strong>Teléfono:</strong> ${telefono}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Mensaje:</strong></p>
+      <p>${mensaje.replace(/</g, '&lt;')}</p>
+    `,
+  })
+
+  if (sendError) {
+    console.error('[contacto] Resend:', sendError)
+    return Response.json(
+      { error: sendError.message ?? 'Error enviando email' },
+      { status: 500 },
+    )
+  }
+
+  if (!data?.id) {
     return Response.json({ error: 'Error enviando email' }, { status: 500 })
   }
+
+  return Response.json({ ok: true })
 }

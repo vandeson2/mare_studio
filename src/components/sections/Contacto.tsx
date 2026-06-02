@@ -22,27 +22,39 @@ const inputStyle = {
 }
 
 export default function Contacto() {
-  const [form, setForm]     = useState<Form>(empty)
+  const [form, setForm]       = useState<Form>(empty)
   const [sending, setSending] = useState(false)
-  const [sent, setSent]     = useState(false)
+  const [sent, setSent]       = useState(false)
+  const [error, setError]     = useState<string | null>(null)
 
   const handle = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setForm(p => ({ ...p, [e.target.name]: e.target.value }))
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setError(null)
     setSending(true)
-  const res = await fetch('/api/contacto', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(form),
-  })
-  
-  if (res.ok){
-    setSent(true)
-    setForm(empty)
-  }
-    setSending(false)
+
+    try {
+      const res = await fetch('/api/contacto', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+
+      const data = (await res.json().catch(() => ({}))) as { error?: string }
+
+      if (res.ok) {
+        setSent(true)
+        setForm(empty)
+      } else {
+        setError(data.error ?? 'No se pudo enviar el mensaje. Inténtalo de nuevo.')
+      }
+    } catch {
+      setError('Error de conexión. Comprueba tu red e inténtalo de nuevo.')
+    } finally {
+      setSending(false)
+    }
   }
 
   return (
@@ -191,6 +203,7 @@ export default function Contacto() {
                     id="mensaje"
                     name="mensaje"
                     rows={3}
+                    required
                     placeholder="Cuéntenos brevemente su proyecto..."
                     value={form.mensaje}
                     onChange={handle}
@@ -200,7 +213,16 @@ export default function Contacto() {
                   />
                 </div>
 
-                {/* Submit  */}
+                {error && (
+                  <p
+                    role="alert"
+                    className="font-sans text-red-300/90"
+                    style={{ fontSize: '0.85rem', lineHeight: 1.6 }}
+                  >
+                    {error}
+                  </p>
+                )}
+
                 <Button
                   type="submit"
                   variant="outlineLight"

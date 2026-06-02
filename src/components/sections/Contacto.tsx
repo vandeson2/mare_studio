@@ -7,18 +7,11 @@ import Button from '../ui/Button'
 type Form = { nombre: string; empresa: string; telefono: string; email: string; mensaje: string; website: string}
 const empty: Form = { nombre: '', empresa: '', telefono: '',email: '', mensaje: '', website: ''}
 
-const inputStyle = {
-  background:  'transparent',
-  border:      'none',
-  borderBottom: '1px solid rgba(220,205,190,0.18)',
-  paddingBottom: '1rem',
-  paddingTop:  '0.25rem',
-  width:       '100%',
-  fontFamily:  'var(--font-inter), system-ui, sans-serif',
-  fontSize:    '0.9rem',
-  color:       '#F7F3EE',
-  outline:     'none',
-  transition:  'border-color 0.4s, color 0.4s',
+const autocompleteByField: Record<string, string> = {
+  nombre: 'name',
+  empresa: 'organization',
+  telefono: 'tel',
+  email: 'email',
 }
 
 export default function Contacto() {
@@ -29,6 +22,17 @@ export default function Contacto() {
 
   const handle = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setForm(p => ({ ...p, [e.target.name]: e.target.value }))
+
+  /** Chrome rellena el DOM pero a veces no dispara onChange en inputs controlados */
+  const syncAutofill = (
+    e: React.AnimationEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    if (e.animationName !== 'contact-field-autofill') return
+    const { name, value } = e.currentTarget
+    if (name in empty) {
+      setForm(p => ({ ...p, [name]: value }))
+    }
+  }
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -182,11 +186,11 @@ export default function Contacto() {
                       type={f.type}
                       required={f.required}
                       placeholder={f.placeholder}
+                      autoComplete={autocompleteByField[f.id]}
                       value={form[f.id as keyof Form]}
                       onChange={handle}
-                      style={inputStyle}
-                      onFocus={e => (e.target.style.borderBottomColor = 'rgba(220,205,190,0.48)')}
-                      onBlur={e => (e.target.style.borderBottomColor = 'rgba(220,205,190,0.18)')}
+                      onAnimationStart={syncAutofill}
+                      className="contact-field"
                     />
                   </div>
                 ))}
@@ -204,12 +208,12 @@ export default function Contacto() {
                     name="mensaje"
                     rows={3}
                     required
+                    autoComplete="off"
                     placeholder="Cuéntenos brevemente su proyecto..."
                     value={form.mensaje}
                     onChange={handle}
-                    style={{ ...inputStyle, resize: 'none', lineHeight: 1.7 }}
-                    onFocus={e => (e.target.style.borderBottomColor = 'rgba(220,205,190,0.48)')}
-                    onBlur={e => (e.target.style.borderBottomColor = 'rgba(220,205,190,0.18)')}
+                    onAnimationStart={syncAutofill}
+                    className="contact-field resize-none leading-[1.7]"
                   />
                 </div>
 

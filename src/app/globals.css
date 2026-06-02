@@ -92,5 +92,42 @@
     .scrollbar-hide::-webkit-scrollbar {
       display: none;
     }
+
+    /* Formulario contacto: autocompletado del navegador */
+    .contact-field {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(220, 205, 190, 0.18);
+      padding: 0.25rem 0 1rem;
+      width: 100%;
+      font-family: var(--font-inter), system-ui, sans-serif;
+      font-size: 0.9rem;
+      color: #f7f3ee;
+      outline: none;
+      transition: border-color 0.4s, color 0.4s;
+      border-radius: 0;
+    }
+
+    .contact-field:focus {
+      border-bottom-color: rgba(220, 205, 190, 0.48);
+    }
+
+    .contact-field:-webkit-autofill,
+    .contact-field:-webkit-autofill:hover,
+    .contact-field:-webkit-autofill:focus,
+    .contact-field:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 1000px #2f2a28 inset !important;
+      box-shadow: 0 0 0 1000px #2f2a28 inset !important;
+      -webkit-text-fill-color: #f7f3ee !important;
+      caret-color: #f7f3ee;
+      animation: contact-field-autofill 0s 1ms;
+    }
+
+    @keyframes contact-field-autofill {
+      from,
+      to {
+        background-color: #2f2a28;
+      }
+    }
   }
   
